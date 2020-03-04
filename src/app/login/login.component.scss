@@ -1,0 +1,20 @@
+@import '../vars';
+
+div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    background-color: $light-grey;
+    color: $dark-grey;
+    padding: 30%;
+}
+
+form div {
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+    margin-top: 1rem;
+}

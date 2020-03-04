@@ -1,0 +1,18 @@
+<div class="wrapper">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <span> Acessas sistema </span>
+
+        <div class="login">
+            <input id="login" type="text" placeholder="Email" formControlName="user">
+        </div>
+
+        <div class="password">
+            <input id="password" type="text" placeholder="Senha" formControlName="password">
+        </div>
+
+        <button [disabled]="loading">
+            LOGIN
+        </button>
+
+    </form>
+</div>
