@@ -1,7 +1,6 @@
-<div class="wrapper">
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <span> Acessas sistema </span>
-
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="wrapper">
+        <span class="title"> Muito bom te ver aqui :) </span>
         <div class="login">
             <input id="login" type="text" placeholder="Email" formControlName="user">
         </div>
@@ -10,9 +9,11 @@
             <input id="password" type="text" placeholder="Senha" formControlName="password">
         </div>
 
-        <button [disabled]="loading">
-            LOGIN
-        </button>
+        <div class="login">
+            <button [disabled]="loading" class="primary">
+                LOGIN
+            </button>
+        </div>
 
-    </form>
-</div>
+    </div>
+</form>

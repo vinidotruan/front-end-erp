@@ -5,5 +5,5 @@ export class User {
     role_id: number;
     user: string;
     password: string;
-    token?: string;
+    access_token?: string;
 }

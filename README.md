@@ -1,3 +1,7 @@
+# Observações importantes
+
+A lógica por trás do login desta plataforma foi feita seguindo o [seguinte artigo](https://jasonwatmore.com/post/2019/06/22/angular-8-jwt-authentication-example-tutorial#login-component-html)
+
 # FrontEnd
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.4.

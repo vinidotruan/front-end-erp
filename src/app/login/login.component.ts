@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { Login } from '../shared/models/login';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from '@shared/services/authentication.service';
 import { first } from 'rxjs/operators';
+import { Login } from '@shared/forms/login';
 
 @Component({
   selector: 'app-login',
@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(this.f.user.value, this.f.password.value)
     .pipe(first())
     .subscribe(
-      data => console.log('AA'),
+      data => this.router.navigate(['/products']),
       error => {
         console.log(error);
         this.error = error;

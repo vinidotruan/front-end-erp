@@ -1,20 +1,22 @@
 @import '../vars';
-
-div {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
 form {
-    background-color: $light-grey;
+    background-color: $white;
     color: $dark-grey;
     padding: 30%;
-}
 
-form div {
-    display: flex;
-    justify-content: space-between;
-    align-content: space-between;
-    margin-top: 1rem;
+    .title {
+        font-weight: 900;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 30rem;
+    }
+    div.wrapper div {
+        display: flex;
+        justify-content: space-between;
+        align-content: space-between;
+        margin-top: 1rem;
+    }
 }
