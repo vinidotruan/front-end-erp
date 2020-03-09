@@ -1,57 +1,14 @@
 @import "./app/vars";
-
 * {
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
-    border-radius: .2rem;
-    border: none;
     transition: .3s;
 }
 
-html {
-    margin: 0px;
-    height: 100%;
-    width: 100%;
-
- }
- 
- body {
-    margin: 0px;
-    min-height: 100%;
-    width: 100%;
+.success {
+    background-color: $blue;
     color: $white;
-    background-color: $grey-400;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
-button {
-    min-width: 100%;
-    min-height: 2rem;
-    background-color: $white;
-    color: $dark-grey;
-    font-weight: 900;
-    border: 1px solid $grey-100;
-    margin-top: 1rem;
-
-    &.primary {
-        background-color: $blue;
-        color: white;        
-    }
-}
-
-
-input {
-    height: 2rem;
-    padding-left: 1rem;
-    color: $grey-600;
-    border: 1px solid $grey-100;
-    
-    &:focus {
-        box-shadow: 1px 1px 10px 1px $blue;
-        border: 1px solid $sky;
-    }
+.fail {
+    background-color: $red;
+    color: $white;
 }

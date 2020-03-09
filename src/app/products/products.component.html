@@ -1,17 +1,23 @@
-<div class="wrapper">
-    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
-        <div class="title">
-            <span> CADASTRO DE PRODUTOS </span>
-        </div>
-        <hr>
-        <div class="row">
+<form class="col s8" [formGroup]="productForm">
+    <div class="row">
+        <div class="input-field col s4">
             <input type="text" placeholder="Nome da peça" formControlName="title">
+        </div>
+        <div class="input-field col s4">
             <input type="text" placeholder="Referência" formControlName="ref">
+        </div>
+        <div class="input-field col s4">
             <input type="number" placeholder="Quantidade" formControlName="amount">
         </div>
-        <div class="row">
+    </div>
+    <div class="row">
+        <div class="input-field col s4">
             <input type="text" placeholder="Valor de custo" formControlName="value_cost">
+        </div>
+        <div class="input-field col s4">
             <input type="text" placeholder="Valor de venda" formControlName="value_sell">
+        </div>
+        <div class="input-field col s4">
             <input list="Categorias" placeholder="Categorias" formControlName="category_id"/>
             <datalist id="Categorias">
                 <option value="1">
@@ -21,12 +27,17 @@
                 <option value="5">
             </datalist>
         </div>
-        <div class="row">
-            <textarea name="Aplicação" cols="30" rows="10" formControlName="application"></textarea>
-        </div>
+    </div>
 
-        <button >
-            Cadastrar
-        </button>
-    </form>
-</div>
+    <div class="row">
+        <div class="input-field col s12">
+            <textarea id="textarea1" class="materialize-textarea" formControlName="application"></textarea>
+            <label for="textarea1">Textarea</label>
+        </div>
+    </div>
+
+    <a class="waves-effect waves-light btn blue darken-1" (click)="onSubmit()">Cadastrar</a>
+
+</form>
+
+{{ productForm.value | json}}

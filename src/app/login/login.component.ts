@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from '@shared/services/authentication.service';
 import { first } from 'rxjs/operators';
 import { Login } from '@shared/forms/login';
+import * as M from 'materialize-css';
 
 @Component({
   selector: 'app-login',
@@ -30,6 +31,7 @@ export class LoginComponent implements OnInit {
    }
   
   ngOnInit(): void {
+    M.updateTextFields();
     this.loginForm = this.formBuilder.group(new Login);
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }

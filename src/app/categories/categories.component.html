@@ -1,1 +1,41 @@
-<p>categories works!</p>
+<form class="col s8" [formGroup]="categoryForm">
+    <div class="row">
+        <div class="col s8">
+            <h1>Cadastrar Categoria</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s8">
+            <input type="text" placeholder="Nome da categoria" formControlName="name">
+        </div>
+        <a class="btn blue darken-1" (click)="onSubmit()">{{(!category)?"Cadastrar":"Editar"}}</a>
+    </div>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let category of categoriesInfos?.data">
+            <td>{{category.name}}</td>
+            <td>
+                <a class="btn blue" (click)="selectCategory(category)">
+                    <i class="material-icons">
+                        create
+                    </i>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<ul class="pagination">
+    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+    <li class="active"><a href="#!">1</a></li>
+    <li *ngFor="let page from "><a href="#!">5</a></li>
+    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+</ul>
