@@ -17,8 +17,8 @@ export class CategoriesService {
   /**
    * Return all categories
    */
-  get = ():Observable<Category[]> => {
-    return this.http.get<Category[]>(`${environment.apiUrl}/categories`);
+  get = (page = -1):Observable<Category[]> => {
+    return this.http.get<Category[]>(`${environment.apiUrl}/categories?page=${page}`);
   }
 
   /**

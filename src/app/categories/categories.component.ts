@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { CategoriesService } from '@shared/services/categories.service';
 import { CategoryForm } from '@shared/forms/categories';
 import * as M from 'materialize-css';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-categories',
@@ -17,12 +18,14 @@ export class CategoriesComponent implements OnInit {
 
   constructor(
     private service: CategoriesService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
     this.categoryForm = this.formBuilder.group(new CategoryForm);
-    this.getCategories();
+    this.route.queryParams
+    .subscribe(({page}) => this.getCategories(page));
   }
 
   selectCategory = (category) => {
@@ -31,6 +34,7 @@ export class CategoriesComponent implements OnInit {
   }
 
   fillForm = () => this.categoryForm.patchValue(this.category);
+
   emptyForm = () => {
     this.categoryForm.reset();
     this.category = null;
@@ -65,10 +69,14 @@ export class CategoriesComponent implements OnInit {
     )
   }
 
-  getCategories = () => this.service.get()
+  getCategories = (page?) => this.service.get(page)
   .subscribe(
     response => this.categoriesInfos = response,
     error => M.toast({html: error, classes:'fail'})
   );
+
+  get pagination() {
+    return [...Array( this.categoriesInfos?.last_page ).keys()];
+  }
 
 }

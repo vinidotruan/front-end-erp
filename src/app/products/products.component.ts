@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ProductForm } from '@shared/forms/products';
 import { ProductsService } from '@shared/services/products.service';
 import { CategoriesService } from '@shared/services/categories.service';
+import * as M from 'materialize-css';
 
 @Component({
   selector: 'app-products',
@@ -12,6 +13,7 @@ import { CategoriesService } from '@shared/services/categories.service';
 export class ProductsComponent implements OnInit {
 
   public productForm: FormGroup;
+  public categories;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -21,6 +23,7 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.productForm = this.formBuilder.group(new ProductForm);
+    this.getCategories();
   }
 
   onSubmit() {
@@ -33,5 +36,11 @@ export class ProductsComponent implements OnInit {
       error => console.log(error)
     )
   }
+
+  getCategories = () => this.categoriesService.get()
+  .subscribe(
+    (categories:any) => {this.categories = categories?.data; console.log(categories?.data)},
+    error => M.toast({html: error, classes:'fail'})
+  );
 
 }

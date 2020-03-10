@@ -10,6 +10,7 @@ import { JwtInterceptor } from '@shared/helpers/jwt.interceptor';
 import { ErrorInterceptor } from '@shared/helpers/error.interceptor';
 import { ProductsComponent } from './products/products.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { InventoryComponent } from './inventory/inventory.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { CategoriesComponent } from './categories/categories.component';
     LoginComponent,
     ProductsComponent,
     CategoriesComponent,
+    InventoryComponent,
   ],
   imports: [
     BrowserModule,
