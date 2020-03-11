@@ -8,7 +8,7 @@
         <div class="input-field col s8">
             <input type="text" placeholder="Nome da categoria" formControlName="name">
         </div>
-        <a class="btn blue darken-1" (click)="onSubmit()">{{(!category)?"Cadastrar":"Editar"}}</a>
+        <button class="btn blue darken-1" [disabled]="loading" (click)="onSubmit()">{{(!category)?"Cadastrar":"Editar"}}</button>
     </div>
 </form>
 

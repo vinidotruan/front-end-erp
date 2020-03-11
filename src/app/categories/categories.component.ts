@@ -15,6 +15,7 @@ export class CategoriesComponent implements OnInit {
   public categoryForm: FormGroup;
   public categoriesInfos;
   public category;
+  public loading: boolean = false;
 
   constructor(
     private service: CategoriesService,
@@ -36,11 +37,11 @@ export class CategoriesComponent implements OnInit {
   fillForm = () => this.categoryForm.patchValue(this.category);
 
   emptyForm = () => {
-    this.categoryForm.reset();
     this.category = null;
   }
 
   onSubmit() {
+    this.loading = true;
     if(this.categoryForm.invalid) {
       return
     }
@@ -53,8 +54,8 @@ export class CategoriesComponent implements OnInit {
           this.getCategories();
           this.emptyForm();
         },
-        error => M.toast({html: error, classes:'fail'})
-
+        error => M.toast({html: error, classes:'fail'}),
+        () => this.loading = false
       );
       return;
     }
@@ -65,7 +66,9 @@ export class CategoriesComponent implements OnInit {
         M.toast({html: data?.message, classes:'success'}); 
         this.getCategories()
       },
-      error => M.toast({html: error, classes:'fail'})
+      error => M.toast({html: error, classes:'fail'}),
+      () => this.loading = false
+      
     )
   }
 

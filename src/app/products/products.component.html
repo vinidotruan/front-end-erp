@@ -18,7 +18,7 @@
             <input type="text" placeholder="Valor de venda" formControlName="value_sell">
         </div>
         <div class="input-field col s4">
-            <input list="Categorias" placeholder="Categorias" />
+            <input list="Categorias" placeholder="Categorias" (change)="setCategory($event.target.value)"/>
             <datalist id="Categorias">
                 <option *ngFor="let category of categories" value="{{category.name}}">
             </datalist>
@@ -32,5 +32,5 @@
         </div>
     </div>
 
-    <a class="waves-effect waves-light btn blue darken-1" (click)="onSubmit()">Cadastrar</a>
+    <button class="btn blue darken-1" (click)="onSubmit()" [disabled]="productForm?.invalid || loading">Cadastrar</button>
 </form>

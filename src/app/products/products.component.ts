@@ -14,6 +14,8 @@ export class ProductsComponent implements OnInit {
 
   public productForm: FormGroup;
   public categories;
+  public selectedCategory;
+  public loading: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -27,13 +29,14 @@ export class ProductsComponent implements OnInit {
   }
 
   onSubmit() {
+    this.loading = true;
     if(this.productForm.invalid) {
       return;
     }
-
     this.service.store(this.productForm.value).subscribe(
-      data => console.log(data),
-      error => console.log(error)
+      () => M.toast({html: "Cadastrado com sucesso", classes:'success'}),
+      error => M.toast({html: error, classes:'fail'}),
+      () => this.loading = false
     )
   }
 
@@ -42,5 +45,14 @@ export class ProductsComponent implements OnInit {
     (categories:any) => {this.categories = categories?.data; console.log(categories?.data)},
     error => M.toast({html: error, classes:'fail'})
   );
+
+  setCategory = (category) => {
+    this.productForm.controls['category_id'].setValue(this.getSelectedCategoryByName(category)?.id);
+  }
+
+  getSelectedCategoryByName(selectedName: string) {
+    console.log(selectedName);
+    return this.categories.find(categoriy => categoriy.name === selectedName);
+  }
 
 }
