@@ -39,11 +39,11 @@
         <tr *ngFor="let category of categoriesInfos?.data">
             <td>{{category.name}}</td>
             <td>
-                <a class="btn blue" (click)="selectCategory(category)">
+                <button class="btn blue" (click)="selectCategory(category)">
                     <i class="material-icons">
                         create
                     </i>
-                </a>
+                </button>
             </td>
         </tr>
     </tbody>
