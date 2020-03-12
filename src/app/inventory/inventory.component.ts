@@ -48,7 +48,6 @@ export class InventoryComponent implements OnInit {
   selectProduct = (product) => this.selectedProduct = product;
 
   get pagination() {
-    console.log(this.loggedUser);
     return [...Array(this.productsInfos?.last_page).keys()];
   }
 
