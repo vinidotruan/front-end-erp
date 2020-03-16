@@ -9,6 +9,7 @@ import { InventoryComponent } from './inventory/inventory.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'products', component: ProductsComponent },
+  { path: 'products/:id', component: ProductsComponent },
   { path: 'inventory', component: InventoryComponent },
   { path: 'categories', component: CategoriesComponent },
   { path: '**', redirectTo: '' }

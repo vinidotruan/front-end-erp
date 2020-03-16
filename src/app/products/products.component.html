@@ -1,4 +1,4 @@
-<form class="col s8" [formGroup]="productForm">
+<form class="col s8" [formGroup]="productForm"  autocomplete="off" autocomplete="false">
     <div class="row">
         <div class="input-field col s4">
             <input type="text" placeholder="Nome da peça" formControlName="title">
@@ -17,12 +17,15 @@
         <div class="input-field col s4">
             <input type="text" placeholder="Valor de venda" formControlName="value_sell">
         </div>
-        <div class="input-field col s4">
-            <input list="Categorias" placeholder="Categorias" (change)="setCategory($event.target.value)"/>
-            <datalist id="Categorias">
-                <option *ngFor="let category of categories" value="{{category.name}}">
-            </datalist>
+        <div class="col s4">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" id="autocomplete-input" name="categories" class="autocomplete" (change)="setCategory($event.target.value)" #aa>
+                    <label for="autocomplete-input">Categorias</label>
+                </div>
+            </div>
         </div>
+
     </div>
 
     <div class="row">
@@ -34,3 +37,6 @@
 
     <button class="btn blue darken-1" (click)="onSubmit()" [disabled]="productForm?.invalid || loading">Cadastrar</button>
 </form>
+
+
+{{ productForm.value | json}}
