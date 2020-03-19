@@ -33,7 +33,9 @@ nav, .sidenav {
 
 * {
   transition: 0.3s;
-  color:$dark-grey;
+  &:not(.btn > *) {
+    color:$dark-grey;
+  }
 }
 
 .success {
@@ -44,4 +46,8 @@ nav, .sidenav {
 .fail {
   background-color: $red;
   color: $white;
+}
+
+.clickable {
+  cursor: pointer;
 }

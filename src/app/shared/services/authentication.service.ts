@@ -22,7 +22,7 @@ export class AuthenticationService {
         return this.currentUserSubject.value;
     }
 
-    login(user: string, password: string) {
+    login = (user: string, password: string) => {
         return this.http.post<any>(`${environment.apiUrl}/auth/login`, { user, password })
             .pipe(map(user => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -32,9 +32,14 @@ export class AuthenticationService {
             }));
     }
 
-    logout() {
+    logout = () => {
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser');
         this.currentUserSubject.next(null);
+        return this.http.get<any>(`${environment.apiUrl}/auth/logout`);
+    }
+
+    isLogged = () => {
+        return (this.currentUserValue);
     }
 }

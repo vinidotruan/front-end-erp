@@ -4,14 +4,16 @@ import { LoginComponent } from './login/login.component';
 import { ProductsComponent } from './products/products.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { InventoryComponent } from './inventory/inventory.component';
+import { AuthGuard } from '@shared/helpers/auth.guard';
 
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'products', component: ProductsComponent },
-  { path: 'products/:id', component: ProductsComponent },
-  { path: 'inventory', component: InventoryComponent },
-  { path: 'categories', component: CategoriesComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'products', component: ProductsComponent, canActivate: [AuthGuard] },
+  { path: 'products/:id', component: ProductsComponent, canActivate: [AuthGuard] },
+  { path: 'inventory', component: InventoryComponent, canActivate: [AuthGuard] },
+  { path: 'categories', component: CategoriesComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '' }
 
 ];
