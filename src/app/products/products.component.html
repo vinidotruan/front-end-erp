@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="col s12 center">
+      <h3>Cadastrar Produtos</h3>
+  </div>
+</div>
+<form
+  class="col s8"
+  [formGroup]="productForm"
+  autocomplete="off"
+  autocomplete="false"
+>
+  <div class="row">
+    <div class="input-field col s4">
+      <input type="text" placeholder="Nome da peça" formControlName="title" />
+    </div>
+    <div class="input-field col s4">
+      <input type="text" placeholder="Referência" formControlName="ref" />
+    </div>
+    <div class="input-field col s4">
+      <input type="number" placeholder="Quantidade" formControlName="amount" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s4">
+      <input
+        type="text"
+        placeholder="Valor de custo"
+        formControlName="value_cost"
+      />
+    </div>
+    <div class="input-field col s4">
+      <input
+        type="text"
+        placeholder="Valor de venda"
+        formControlName="value_sell"
+      />
+    </div>
+    <div class="col s4">
+      <div class="row">
+        <div class="input-field col s12">
+          <ng-select
+            [items]="categories"
+            bindLabel="name"
+            bindValue="id"
+            formControlName="category_id"
+          ></ng-select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <textarea
+        id="textarea1"
+        class="materialize-textarea"
+        formControlName="application"
+      ></textarea>
+      <label for="textarea1">Textarea</label>
+    </div>
+  </div>
+
+  <button
+    class="btn blue darken-1"
+    (click)="onSubmit()"
+    [disabled]="productForm?.invalid || loading"
+  >
+    Cadastrar
+  </button>
+</form>

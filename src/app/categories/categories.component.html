@@ -1,0 +1,65 @@
+<form class="col s8" [formGroup]="categoryForm">
+    <div class="row">
+        <div class="col s12 center">
+            <h3>Cadastrar Categoria</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s8">
+            <input type="text" placeholder="Nome da categoria" formControlName="name">
+        </div>
+        <button class="btn blue darken-1" [disabled]="loading" (click)="onSubmit()">{{(!category)?"Cadastrar":"Editar"}}</button>
+    </div>
+</form>
+
+<ul class="pagination">
+    <li [ngClass]="{'disabled' : (categoriesInfos?.current_page === 1)}">
+        <a href="categories?page={{(categoriesInfos?.current_page - 1)}}">
+            <i class="material-icons">chevron_left</i>
+        </a>
+    </li>
+    <li *ngFor="let page of pagination; let i = index" class="waves-effect" [ngClass]="{'active' : ((i+1) === categoriesInfos?.current_page)}">
+        <a href="categories?page={{(i+1)}}">{{ i + 1 }} </a>
+    </li>
+    <li [ngClass]="{'disabled' : (categoriesInfos?.current_page === categoriesInfos?.last_page)}">
+        <a href="categories?page={{(categoriesInfos?.current_page + 1)}}">
+            <i class="material-icons">chevron_right</i>
+        </a>
+    </li>
+</ul> 
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let category of categoriesInfos?.data">
+            <td>{{category.name}}</td>
+            <td>
+                <button class="btn blue" (click)="selectCategory(category)">
+                    <i class="material-icons">
+                        create
+                    </i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<ul class="pagination">
+    <li [ngClass]="{'disabled' : (categoriesInfos?.current_page === 1)}">
+        <a href="categories?page={{(categoriesInfos?.current_page - 1)}}">
+            <i class="material-icons">chevron_left</i>
+        </a>
+    </li>
+    <li *ngFor="let page of pagination; let i = index" class="waves-effect" [ngClass]="{'active' : ((i+1) === categoriesInfos?.current_page)}">
+        <a href="categories?page={{(i+1)}}">{{ i + 1 }} </a>
+    </li>
+    <li [ngClass]="{'disabled' : (categoriesInfos?.current_page === categoriesInfos?.last_page)}">
+        <a href="categories?page={{(categoriesInfos?.current_page + 1)}}">
+            <i class="material-icons">chevron_right</i>
+        </a>
+    </li>
+</ul> 

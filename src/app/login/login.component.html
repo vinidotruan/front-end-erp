@@ -1,0 +1,21 @@
+
+<div class="row valign-wrapper">
+    <form class="col s6 offset-s3" [formGroup]="loginForm">
+        <div class="row">
+            <div class="col s12">
+                <h5 class="">Seja bem vindo de volta!</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input placeholder="Usuário" id="user" type="text" class="validate" formControlName="user">
+                <label for="user">Usuário</label>
+              </div>
+              <div class="input-field col s12">
+                <input id="password" type="text" class="validate" formControlName="password">
+                <label for="password">Senha</label>
+              </div>
+        </div>
+        <a class="waves-effect waves-light btn blue darken-1" (click)="onSubmit()">Login</a>
+    </form>
+</div>

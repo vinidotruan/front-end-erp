@@ -1,1 +1,47 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./app/vars";
+@import "~@ng-select/ng-select/themes/material.theme.css";
+
+header, main, footer {
+  padding-left: 300px;
+}
+
+@media only screen and (max-width : 992px) {
+  header, main, footer {
+    padding-left: 0;
+  }
+}
+
+nav, .sidenav {
+  background: $dark-grey;
+  color: white;
+
+  .material-icons {
+    color:white !important;
+  }
+}
+
+.sidenav {
+  top: 64px;
+  li > a {
+    color: white;
+  }
+}
+
+.pagination li.active {
+  background-color: $blue;
+}
+
+* {
+  transition: 0.3s;
+  color:$dark-grey;
+}
+
+.success {
+  background-color: $blue;
+  color: $white;
+}
+
+.fail {
+  background-color: $red;
+  color: $white;
+}
