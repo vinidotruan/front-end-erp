@@ -2,6 +2,7 @@ import { FormControl, Validators } from '@angular/forms';
 
 export class ProductForm {
 
+    id = new FormControl(null);
     title = new FormControl('', Validators.required);
     ref = new FormControl('', Validators.required);
     category_id = new FormControl(null, Validators.required);

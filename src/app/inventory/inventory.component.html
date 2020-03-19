@@ -1,3 +1,8 @@
+<div class="row">
+    <div class="col s12 center">
+        <h3>Estoque/Baixas</h3>
+    </div>
+</div>
 <ul class="pagination">
     <li [ngClass]="{'disabled' : (productsInfos?.current_page === 1)}">
         <a href="products?page={{(productsInfos?.current_page - 1)}}">
@@ -43,11 +48,11 @@
                 </button>
             </td>
             <td>
-                <button class="btn blue" (click)="selectProduct(product)">
+                <a class="btn blue" href="/products/{{product.id}}">
                     <i class="material-icons">
                         create
                     </i>
-                </button>
+                </a>
             </td>
         </tr>
     </tbody>

@@ -29,15 +29,15 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.productForm = this.formBuilder.group(new ProductForm);
-    
     this.getCategories();
+
     if(this.route.snapshot.paramMap.get('id')) {
       this.service.find(this.route.snapshot.paramMap.get('id'))
         .subscribe(
           (product) => {
             this.productForm.patchValue(product);
-            this.setCategory(product.category.name);
-            this.selectedCategory = product.category;
+            M.updateTextFields();            
+            M.textareaAutoResize(document.querySelector('.materialize-textarea'));
           },
           error => M.toast({ html: error, classes:'fail'})
         );
@@ -49,39 +49,27 @@ export class ProductsComponent implements OnInit {
     if(this.productForm.invalid) {
       return;
     }
-    this.service.store(this.productForm.value).subscribe(
-      () => M.toast({html: "Cadastrado com sucesso", classes:'success'}),
-      error => M.toast({html: error, classes:'fail'}),
-      () => this.loading = false
-    )
+
+    if(this.productForm.value.id) {
+      this.service.update(this.productForm.value)
+      .subscribe(
+        () => M.toast({html: "Atualizado com sucesso", classes:'success'}),
+        error => M.toast({html: error, classes:'fail'}),
+        () => this.loading = false
+      )
+    } else {
+    this.service.store(this.productForm.value)
+      .subscribe(
+        () => M.toast({html: "Cadastrado com sucesso", classes:'success'}),
+        error => M.toast({html: error, classes:'fail'}),
+        () => this.loading = false
+      )
+    }
   }
 
   getCategories = () => this.categoriesService.get()
   .subscribe(
-    (categories:any) => {
-      this.categories = categories?.data;
-      var elems = document.querySelectorAll('.autocomplete');
-      var instances = M.Autocomplete.init(elems, {
-        data: this.mountCategoriesObj(categories?.data), 
-        onAutocomplete: (category_name) => this.setCategory(category_name),
-      }, {count:43});
-      instances[0].activeIndex = 3;
-      instances[0].isOpen = true;
-      console.log(instances);
-    },
+    (categories:any) =>  this.categories = categories?.data,
     error => M.toast({html: error, classes:'fail'})
     );
-
-    mountCategoriesObj = (categories) => Object.keys(categories)
-      .map( (d, i) => [categories[d].name, null])
-      .reduce( (ac, d, i) => (ac[d[0]] = d[1], ac), {} );
-
-  setCategory = (category_name) => {
-    console.log(this.aa);
-    this.productForm.controls['category_id'].setValue(this.getSelectedCategoryByName(category_name)?.id);
-  }
-
-  getSelectedCategoryByName(selectedName: string) {
-    return this.categories.find(category => category.name === selectedName);
-  }
 }
