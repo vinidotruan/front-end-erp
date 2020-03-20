@@ -3,5 +3,20 @@
     <li><a routerLink="/inventory"><i class="material-icons">store_outline</i>Estoque</a></li>
     <li><a routerLink="/products"><i class="material-icons">shopping_cart</i>Cadastrar Produtos</a></li>
     <li><a routerLink="/categories"><i class="material-icons">bookmarks</i>Cadastrar Categorias</a></li>
-    <li (click)="logout()"><a class="clickable"><i class="material-icons">cancel_presentation</i>Sair</a></li>
+    <li>
+        <ul class="collapsible collapsible-accordion">
+          <li>
+            <a class="collapsible-header">Dropdown<i class="material-icons">arrow_drop_down</i></a>
+            <div class="collapsible-body">
+              <ul>
+                <li><a href="#!">First</a></li>
+                <li><a href="#!">Second</a></li>
+                <li><a href="#!">Third</a></li>
+                <li><a href="#!">Fourth</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+    </li>
+    <li (click)="logout()"><a class="clickable"><i class="material-icons">cancel_presentation</i>Sair</a></li>    
 </ul>

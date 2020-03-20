@@ -22,9 +22,20 @@ nav, .sidenav {
 
 .sidenav {
   top: 64px;
+  li:hover {
+    background-color: $grey-600;
+  }
   li > a {
     color: white;
   }
+  .collapsible-body, 
+  .sidenav.fixed .collapsible-body {
+    background-color: $grey-600;
+  }
+}
+
+.sidenav .collapsible-header, .sidenav.fixed .collapsible-header {
+  padding: 0 32px;
 }
 
 .pagination li.active {
