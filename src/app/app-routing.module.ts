@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'inventory', component: InventoryComponent, canActivate: [AuthGuard], data:{type:"list"} },
   { path: 'inventory-edit', component: InventoryComponent, canActivate: [AuthGuard], data:{type:"edit"} },
   { path: 'inventory-sell', component: InventoryComponent, canActivate: [AuthGuard], data:{type:"update"} },
+  { path: 'inventory-add', component: InventoryComponent, canActivate: [AuthGuard], data:{type:"add"} },
   { path: 'categories', component: CategoriesComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '' }
 
