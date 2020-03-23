@@ -27,8 +27,8 @@
             <th>Valor Venda</th>
             <th>Aplicação</th>
             <th>Quantidade</th>
-            <th>Baixa</th>
-            <th>Editar</th>
+            <th *ngIf="screenType === 'update'">Baixa</th>
+            <th *ngIf="screenType === 'edit'">Editar</th>
         </tr>
     </thead>
 
@@ -40,14 +40,14 @@
             <td>{{ product.value_sell }}</td>
             <td>{{ product.application }}</td>
             <td>{{ product.amount }}</td>
-            <td>
+            <td *ngIf="screenType === 'update'">
                 <button class="btn green modal-trigger" data-target="sells" (click)="selectProduct(product)">
                     <i class="material-icons">
-                        add_shopping_cart
+                        shopping_cart
                     </i>
                 </button>
             </td>
-            <td>
+            <td *ngIf="screenType === 'edit'">
                 <a class="btn blue" href="/products/{{product.id}}">
                     <i class="material-icons">
                         create

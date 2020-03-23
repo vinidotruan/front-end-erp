@@ -12,7 +12,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'products', component: ProductsComponent, canActivate: [AuthGuard] },
   { path: 'products/:id', component: ProductsComponent, canActivate: [AuthGuard] },
-  { path: 'inventory', component: InventoryComponent, canActivate: [AuthGuard] },
+  { path: 'inventory', component: InventoryComponent, canActivate: [AuthGuard], data:{type:"list"} },
+  { path: 'inventory-edit', component: InventoryComponent, canActivate: [AuthGuard], data:{type:"edit"} },
+  { path: 'inventory-sell', component: InventoryComponent, canActivate: [AuthGuard], data:{type:"update"} },
   { path: 'categories', component: CategoriesComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '' }
 

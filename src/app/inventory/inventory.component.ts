@@ -18,6 +18,8 @@ export class InventoryComponent implements OnInit {
   loggedUser;
   selectedProduct: Product;
   amount: number;
+
+  screenType: string = "";
   
   constructor(
     private service: ProductsService,
@@ -28,8 +30,9 @@ export class InventoryComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.loggedUser = this.authenticationService.currentUserValue;
-
+    this.loggedUser = this.authenticationService.currentUserValue;    
+    this.screenType = this.route.snapshot.data.type;
+    console.log(this.route.snapshot.data.type);
     this.route.queryParams
     .subscribe(
       ({page}) => this.getProducts(page), 
