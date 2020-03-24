@@ -22,9 +22,20 @@ nav, .sidenav {
 
 .sidenav {
   top: 64px;
+  li:hover {
+    background-color: $grey-600;
+  }
   li > a {
     color: white;
   }
+  .collapsible-body, 
+  .sidenav.fixed .collapsible-body {
+    background-color: $grey-600;
+  }
+}
+
+.sidenav .collapsible-header, .sidenav.fixed .collapsible-header {
+  padding: 0 32px;
 }
 
 .pagination li.active {
@@ -33,7 +44,9 @@ nav, .sidenav {
 
 * {
   transition: 0.3s;
-  color:$dark-grey;
+  &:not(.btn > *) {
+    color:$dark-grey;
+  }
 }
 
 .success {
@@ -44,4 +57,8 @@ nav, .sidenav {
 .fail {
   background-color: $red;
   color: $white;
+}
+
+.clickable {
+  cursor: pointer;
 }

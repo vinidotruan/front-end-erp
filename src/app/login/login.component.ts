@@ -26,14 +26,14 @@ export class LoginComponent implements OnInit {
     private authenticationService: AuthenticationService
   ) {
     if(this.authenticationService.currentUserValue) {
-      this.router.navigate(['/']);
+      this.router.navigate(['/products']);
     }
    }
   
   ngOnInit(): void {
     M.updateTextFields();
     this.loginForm = this.formBuilder.group(new Login);
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';    
   }
 
   get f() { return this.loginForm.controls; }

@@ -10,6 +10,8 @@ import { Observable } from 'rxjs';
 })
 export class ProductsService {
 
+  public filter: string = null;
+
   constructor(
     private http: HttpClient
   ) { }
@@ -17,28 +19,29 @@ export class ProductsService {
   /**
    * Return all products
    */
-  get = (page = -1):Observable<Product[]> => {
-    return this.http.get<Product[]>(`${environment.apiUrl}/products?page=${page}`);
-  }
+  get = (page = -1):Observable<Product[]> => this.http.get<Product[]>(`${environment.apiUrl}/products?page=${page}`);
 
   /**
    * Return an product
    */
-  find = (id):Observable<Product> => {
-    return this.http.get<Product>(`${environment.apiUrl}/products/${id}`);
-  }
+  find = (id):Observable<Product> => this.http.get<Product>(`${environment.apiUrl}/products/${id}`);
 
   /**
    * Store an product
    */
-  store = (product) => {
-    return this.http.post(`${environment.apiUrl}/products`, product);
-  }
+  store = (product) =>  this.http.post(`${environment.apiUrl}/products`, product);
+  
   /**
    * Update an product
    */
-  update = (product) => {
-    return this.http.put(`${environment.apiUrl}/products/${product.id}`, product);
+  update = (product) => this.http.put(`${environment.apiUrl}/products/${product.id}`, product);
+
+  /**
+   * Search products
+   */
+  search = (product) => {
+    this.filter = product;
+    return this.http.get(`${environment.apiUrl}/products/search?${product}`);
   }
 
 }

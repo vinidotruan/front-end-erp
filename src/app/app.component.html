@@ -1,11 +1,5 @@
-<nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo center">AUTOPEÇAS ERP</a>
-      <ul id="nav-mobile" class="left hide-on-med-and-down">        
-      </ul>
-    </div>
-</nav>
-<app-sidenav></app-sidenav>
+<app-navbar [hidden]="hidden"></app-navbar>
+<app-sidenav [hidden]="hidden"></app-sidenav>
 <main class="container">
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </main>

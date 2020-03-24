@@ -14,6 +14,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     CategoriesComponent,
     InventoryComponent,
     SidenavComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

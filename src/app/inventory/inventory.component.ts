@@ -18,25 +18,34 @@ export class InventoryComponent implements OnInit {
   loggedUser;
   selectedProduct: Product;
   amount: number;
+  filter: string;
+  filterType: string = "title";
+
+  screenType: string = "";
   
   constructor(
+    private route: ActivatedRoute,
     private service: ProductsService,
     private salesService: SalesService,
-    private route: ActivatedRoute,
     private authenticationService: AuthenticationService
   ) { }
 
   ngOnInit(): void {
 
-    this.loggedUser = this.authenticationService.currentUserValue;
-
+    this.loggedUser = this.authenticationService.currentUserValue;    
+    this.screenType = this.route.snapshot.data.type;
     this.route.queryParams
     .subscribe(
-      ({page}) => this.getProducts(page), 
+      ({page}) => (this.haveFilter()) ? this.search(`${this.service.filter}&page=${page}`): this.getProducts(page), 
       (error) => M.toast({html:error, classes: 'fail'})
     );
-
+    M.updateTextFields();
     this.initializeModal();
+    this.initializeSelect();
+  }
+
+  ngOnDestroy() {
+    this.service.filter = null;
   }
 
   getProducts = (page?) => this.service.get(page)
@@ -58,6 +67,11 @@ export class InventoryComponent implements OnInit {
       var instances = M.Modal.init(elems, {});
     });
   }
+  
+  initializeSelect = () => {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems, {});
+  }
 
   sell = () => this.salesService.store({ user_id: this.loggedUser.id, product_id: this.selectedProduct.id, amount:this.amount})
   .subscribe(
@@ -66,4 +80,21 @@ export class InventoryComponent implements OnInit {
       this.getProducts();
     }, error => M.toast({ html: error, classes: 'fail'})
   )
+
+  addAmount = () => this.service.update({ id: this.selectedProduct.id, amount:(this.amount+this.selectedProduct.amount) })
+  .subscribe(
+    data => {
+      M.toast({html: 'Adicionado com sucesso', classses:'success'});
+      this.getProducts();
+    }, error => M.toast({ html: error, classes: 'fail'})
+  )
+  
+  search = (filter?) => this.service.search(
+      (filter??`${this.filterType}=${this.filter}`)
+    ).subscribe(
+      products => this.productsInfos = products,
+      error => M.toast({ html: error, classes:"fail"})
+    )
+
+  haveFilter = () => this.service.filter;
 }
