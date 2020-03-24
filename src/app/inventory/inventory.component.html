@@ -13,13 +13,13 @@
                 <select [(ngModel)]="filterType" name="filterType">
                   <option value="title" selected>Título</option>
                   <option value="ref">Referencia</option>
-                </select>
+                </select>                
                 <label>Selecione o filtro</label>
               </div>
             
             <div class="input-field col s8">
-                <input type="text" placeholder="Nome ou Referência do produto" [(ngModel)]="filter" name="filter" (keyup)="search()">
-                <label for="filter">Nome ou Referência do produto</label>
+                <input type="text" placeholder="Título ou Referência do produto" [(ngModel)]="filter" name="filter" (keyup)="search()">
+                <label for="filter">Título ou Referência do produto</label>
             </div>
         </div>
     </form>

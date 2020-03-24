@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 export class ProductsService {
 
   public filter: string = null;
+
   constructor(
     private http: HttpClient
   ) { }

@@ -72,7 +72,7 @@ export class CategoriesComponent implements OnInit {
     )
   }
 
-  getCategories = (page?) => this.service.get(page)
+  getCategories = (page = 1) => this.service.get(page)
   .subscribe(
     response => this.categoriesInfos = response,
     error => M.toast({html: error, classes:'fail'})

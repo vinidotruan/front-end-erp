@@ -36,12 +36,16 @@ export class InventoryComponent implements OnInit {
     this.screenType = this.route.snapshot.data.type;
     this.route.queryParams
     .subscribe(
-      ({page}) => (this.haveFilter()) ? this.search(this.service.filter): this.getProducts(page), 
+      ({page}) => (this.haveFilter()) ? this.search(`${this.service.filter}&page=${page}`): this.getProducts(page), 
       (error) => M.toast({html:error, classes: 'fail'})
     );
     M.updateTextFields();
     this.initializeModal();
     this.initializeSelect();
+  }
+
+  ngOnDestroy() {
+    this.service.filter = null;
   }
 
   getProducts = (page?) => this.service.get(page)
@@ -84,12 +88,13 @@ export class InventoryComponent implements OnInit {
       this.getProducts();
     }, error => M.toast({ html: error, classes: 'fail'})
   )
-
-  search = (filter?) => {this.service.search((filter??`${this.filterType}=${this.filter}`))
-    .subscribe(
+  
+  search = (filter?) => this.service.search(
+      (filter??`${this.filterType}=${this.filter}`)
+    ).subscribe(
       products => this.productsInfos = products,
       error => M.toast({ html: error, classes:"fail"})
-    ); console.log((filter??`${this.filterType}=${this.filter}`))}
+    )
 
   haveFilter = () => this.service.filter;
 }
