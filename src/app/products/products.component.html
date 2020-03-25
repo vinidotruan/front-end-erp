@@ -14,7 +14,8 @@
       <input type="text" placeholder="Nome da peça" formControlName="title" />
     </div>
     <div class="input-field col s4">
-      <input type="text" placeholder="Referência" formControlName="ref" />
+      <input type="text" placeholder="Referência" formControlName="ref" [ngClass]="{'validate invalid': formControls?.ref?.errors?.unavailable}"/>
+      <span *ngIf="formControls?.ref?.errors?.unavailable"  data-error="Referência já cadastrada" data-success="right" class="helper-text"></span>
     </div>
     <div class="input-field col s4">
       <input type="number" placeholder="Quantidade" formControlName="amount" />

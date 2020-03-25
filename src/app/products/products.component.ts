@@ -61,7 +61,10 @@ export class ProductsComponent implements OnInit {
     this.service.store(this.productForm.value)
       .subscribe(
         () => M.toast({html: "Cadastrado com sucesso", classes:'success'}),
-        error => M.toast({html: error, classes:'fail'}),
+        error => {
+          this.handleError(error);
+          this.loading = false;
+        },
         () => this.loading = false
       )
     }
@@ -72,4 +75,14 @@ export class ProductsComponent implements OnInit {
     (categories:any) =>  this.categories = categories?.data,
     error => M.toast({html: error, classes:'fail'})
     );
+
+    handleError = (e) => {
+      const formFields = Object.keys(this.productForm.value);
+      const errorsFields = Object.keys(e);
+      let fields:any = formFields.filter(value => errorsFields.includes(value));
+      fields.map(f => this.productForm.controls[f].setErrors({'unavailable': true}))
+    }
+
+    get formControls() { return this.productForm.controls; }
+
 }
