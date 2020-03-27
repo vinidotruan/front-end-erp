@@ -107,10 +107,10 @@
 <div id="sells" class="modal sells">
     <div class="modal-content">
         <h4>Dar baixa em {{ selectedProduct?.title }}</h4>
-        <form class="col s12">
+        <form class="col s12" [formGroup]="saleForm">
             <div class="row">
                 <div class="input-field col s12">
-                    <input type="number" placeholder="Quantidade" [(ngModel)]="amount" name="amount">
+                    <input type="number" placeholder="Quantidade" formControlName="amount" name="amount">
                 </div>
             </div>
         </form>
@@ -126,7 +126,7 @@
     <div class="modal-content">
         <h4>Adicionar ao estoque {{ selectedProduct?.title }}</h4>
         <span>Atualmente possui <strong class="success">{{ selectedProduct?.amount }} itens</strong> </span>
-        <form class="col s12">
+        <form class="col s12" >
             <div class="row">
                 <div class="input-field col s12">
                     <input type="number" placeholder="Quantidade" [(ngModel)]="amount" name="amount">
@@ -140,3 +140,5 @@
       <button class="modal-close waves-effect waves-red btn red">Fechar</button>
     </div>
 </div>
+
+{{ this.saleForm.value | json }}
