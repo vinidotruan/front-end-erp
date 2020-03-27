@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col s12 center">
+        <h3>Baixas</h3>
+    </div>
+</div>
+
+<ul class="pagination">
+    <li [ngClass]="{'disabled' : (salesInfos?.current_page === 1)}">
+        <a [routerLink]="['/sales']" [queryParams]="{'page':(salesInfos?.current_page - 1)}">
+            <i class="material-icons">chevron_left</i>
+        </a>
+    </li>
+    <li *ngFor="let page of pagination; let i = index" class="waves-effect" [ngClass]="{'active' : ((i+1) === salesInfos?.current_page)}">
+        <a [routerLink]="['/sales']" [queryParams]="{'page':(i + 1)}">{{ i + 1 }} </a>
+    </li>
+    <li [ngClass]="{'disabled' : (salesInfos?.current_page === salesInfos?.last_page)}">
+        <a [routerLink]="['/sales']" [queryParams]="{'page':(salesInfos?.current_page + 1)}">
+            <i class="material-icons">chevron_right</i>
+        </a>
+    </li>
+</ul>
+
+<table>
+    <thead>
+        <tr>
+            <th>Ref.</th>
+            <th>Nome</th>
+            <th>Aplicação</th>
+            <th>Quantidade</th>
+            <th>Data</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let sale of salesInfos?.data">
+            <td>{{ sale?.product?.ref }}</td>
+            <td>{{ sale?.product?.title }}</td>
+            <td>{{ sale?.product?.application }}</td>
+            <td>{{ sale?.amount }}</td>
+            <td>{{ sale?.date }}</td>
+        </tr>
+    </tbody>
+</table>

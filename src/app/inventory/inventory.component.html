@@ -24,17 +24,18 @@
         </div>
     </form>
 </div>
+
 <ul class="pagination">
     <li [ngClass]="{'disabled' : (productsInfos?.current_page === 1)}">
-        <a [routerLink]="['/inventory']" [queryParams]="{'page':(productsInfos?.current_page - 1)}">
+        <a routerLink="/inventory-{{screenType}}" [queryParams]="{'page':(productsInfos?.current_page - 1)}">
             <i class="material-icons">chevron_left</i>
         </a>
     </li>
     <li *ngFor="let page of pagination; let i = index" class="waves-effect" [ngClass]="{'active' : ((i+1) === productsInfos?.current_page)}">
-        <a [routerLink]="['/inventory']" [queryParams]="{'page':(i + 1)}">{{ i + 1 }} </a>
+        <a routerLink="/inventory-{{screenType}}" [queryParams]="{'page':(i + 1)}">{{ i + 1 }} </a>
     </li>
     <li [ngClass]="{'disabled' : (productsInfos?.current_page === productsInfos?.last_page)}">
-        <a [routerLink]="['/inventory']" [queryParams]="{'page':(productsInfos?.current_page + 1)}">
+        <a routerLink="/inventory-{{screenType}}" [queryParams]="{'page':(productsInfos?.current_page + 1)}">
             <i class="material-icons">chevron_right</i>
         </a>
     </li>
@@ -48,7 +49,7 @@
             <th>Valor Venda</th>
             <th>Aplicação</th>
             <th>Quantidade</th>
-            <th *ngIf="screenType === 'update'">Baixa</th>
+            <th *ngIf="screenType === 'sell'">Baixa</th>
             <th *ngIf="screenType === 'edit'">Editar</th>
             <th *ngIf="screenType === 'add'">Adicionar</th>
         </tr>
@@ -62,7 +63,7 @@
             <td>{{ product.value_sell }}</td>
             <td>{{ product.application }}</td>
             <td>{{ product.amount }}</td>
-            <td *ngIf="screenType === 'update'">
+            <td *ngIf="screenType === 'sell'">
                 <button class="btn green modal-trigger" data-target="sells" (click)="selectProduct(product)">
                     <i class="material-icons">
                         shopping_cart
@@ -88,21 +89,22 @@
 </table>
 <ul class="pagination">
     <li [ngClass]="{'disabled' : (productsInfos?.current_page === 1)}">
-        <a [routerLink]="['/inventory']" [queryParams]="{'page':(productsInfos?.current_page - 1)}">
+        <a routerLink="/inventory-{{screenType}}" [queryParams]="{'page':(productsInfos?.current_page - 1)}">
             <i class="material-icons">chevron_left</i>
         </a>
     </li>
     <li *ngFor="let page of pagination; let i = index" class="waves-effect" [ngClass]="{'active' : ((i+1) === productsInfos?.current_page)}">
-        <a [routerLink]="['/inventory']" [queryParams]="{'page':(i + 1)}">{{ i + 1 }} </a>
+        <a routerLink="/inventory-{{screenType}}" [queryParams]="{'page':(i + 1)}">{{ i + 1 }} </a>
     </li>
     <li [ngClass]="{'disabled' : (productsInfos?.current_page === productsInfos?.last_page)}">
-        <a [routerLink]="['/inventory']" [queryParams]="{'page':(productsInfos?.current_page + 1)}">
+        <a routerLink="/inventory-{{screenType}}" [queryParams]="{'page':(productsInfos?.current_page + 1)}">
             <i class="material-icons">chevron_right</i>
         </a>
     </li>
 </ul>
+
 <!-- Modal Structure -->
-<div id="sells" class="modal">
+<div id="sells" class="modal sells">
     <div class="modal-content">
         <h4>Dar baixa em {{ selectedProduct?.title }}</h4>
         <form class="col s12">

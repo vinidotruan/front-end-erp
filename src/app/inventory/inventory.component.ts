@@ -20,28 +20,30 @@ export class InventoryComponent implements OnInit {
   amount: number;
   filter: string;
   filterType: string = "title";
-
-  screenType: string = "";
+  screenType: string = "";  
+  page;
   
   constructor(
     private route: ActivatedRoute,
     private service: ProductsService,
     private salesService: SalesService,
     private authenticationService: AuthenticationService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-
     this.loggedUser = this.authenticationService.currentUserValue;    
-    this.screenType = this.route.snapshot.data.type;
+    this.screenType = this.route.snapshot.data.type;    
     this.route.queryParams
-    .subscribe(
-      ({page}) => (this.haveFilter()) ? this.search(`${this.service.filter}&page=${page}`): this.getProducts(page), 
-      (error) => M.toast({html:error, classes: 'fail'})
-    );
+      .subscribe(
+        ({page}) => {
+          this.page = page;
+          (this.haveFilter()) ? this.search(`${this.service.filter}&page=${page}`): this.getProducts(page);
+        }, 
+        (error) => M.toast({html:error, classes: 'fail'})
+      );
     M.updateTextFields();
-    this.initializeModal();
     this.initializeSelect();
+    this.initializeModal();
   }
 
   ngOnDestroy() {
@@ -49,10 +51,10 @@ export class InventoryComponent implements OnInit {
   }
 
   getProducts = (page?) => this.service.get(page)
-  .subscribe(
-    data => this.productsInfos = data,
-    error => M.toast({html: error, classes:'fail'})
-  )
+    .subscribe(
+      data => this.productsInfos = data,
+      error => M.toast({html: error, classes:'fail'})
+    )
 
   selectProduct = (product) => this.selectedProduct = product;
 
@@ -60,12 +62,9 @@ export class InventoryComponent implements OnInit {
     return [...Array(this.productsInfos?.last_page).keys()];
   }
 
-  
   initializeModal = () => {
-    document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('.modal');
-      var instances = M.Modal.init(elems, {});
-    });
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems, {});
   }
   
   initializeSelect = () => {
@@ -74,21 +73,21 @@ export class InventoryComponent implements OnInit {
   }
 
   sell = () => this.salesService.store({ user_id: this.loggedUser.id, product_id: this.selectedProduct.id, amount:this.amount})
-  .subscribe(
-    data => {
-      M.toast({html: 'Baixa cadastrada', classses:'success'});
-      this.getProducts();
-    }, error => M.toast({ html: error, classes: 'fail'})
-  )
+    .subscribe(
+      data => {
+        M.toast({html: 'Baixa cadastrada', classses:'success'});
+        this.getProducts(this.page);
+      }, error => M.toast({ html: error, classes: 'fail'})
+    )
 
   addAmount = () => this.service.update({ id: this.selectedProduct.id, amount:(this.amount+this.selectedProduct.amount) })
-  .subscribe(
-    data => {
-      M.toast({html: 'Adicionado com sucesso', classses:'success'});
-      this.getProducts();
-    }, error => M.toast({ html: error, classes: 'fail'})
-  )
-  
+    .subscribe(
+      data => {
+        M.toast({html: 'Adicionado com sucesso', classses:'success'});
+        this.getProducts(this.page);
+      }, error => M.toast({ html: error, classes: 'fail'})
+    )
+    
   search = (filter?) => this.service.search(
       (filter??`${this.filterType}=${this.filter}`)
     ).subscribe(
