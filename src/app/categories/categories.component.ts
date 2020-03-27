@@ -78,6 +78,15 @@ export class CategoriesComponent implements OnInit {
     error => M.toast({html: error, classes:'fail'})
   );
 
+  deleteCategory = (category) => this.service.delete(category)
+    .subscribe(
+      data => {
+        M.toast({ html:'Deletado com sucesso', classes:'success' });
+        this.getCategories();
+      },
+      error => M.toast({ html:'Erro ao deletar', classes:'fail' })
+    )
+
   get pagination() {
     return [...Array( this.categoriesInfos?.last_page ).keys()];
   }

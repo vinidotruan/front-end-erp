@@ -32,6 +32,7 @@
         <tr>
             <th>Name</th>
             <th>Editar</th>
+            <th>Excluir</th>
         </tr>
     </thead>
 
@@ -42,6 +43,13 @@
                 <button class="btn blue" (click)="selectCategory(category)">
                     <i class="material-icons">
                         create
+                    </i>
+                </button>
+            </td>
+            <td>
+                <button class="btn red" (click)="deleteCategory(category)">
+                    <i class="material-icons">
+                        close
                     </i>
                 </button>
             </td>

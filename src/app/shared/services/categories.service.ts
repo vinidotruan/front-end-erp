@@ -34,11 +34,19 @@ export class CategoriesService {
   store = (category) => {
     return this.http.post(`${environment.apiUrl}/categories`, category);
   }
+
   /**
    * Update an category
    */
   update = (category) => {
     return this.http.put(`${environment.apiUrl}/categories/${category.id}`, category);
+  }
+
+  /**
+   * Delete an category
+   */
+  delete = (category) => {
+    return this.http.delete(`${environment.apiUrl}/categories/${category.id}`);
   }
 
 }

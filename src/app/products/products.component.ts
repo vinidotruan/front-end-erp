@@ -83,6 +83,7 @@ export class ProductsComponent implements OnInit {
       fields.map(f => this.productForm.controls[f].setErrors({'unavailable': true}))
     }
 
+    clean = () => this.productForm.reset();
     get formControls() { return this.productForm.controls; }
 
 }
