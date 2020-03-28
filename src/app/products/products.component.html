@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col s12 center">
-      <h3>Cadastrar Produtos</h3>
+    <h3>Cadastrar Produtos</h3>
   </div>
 </div>
 <form
@@ -14,8 +14,20 @@
       <input type="text" placeholder="Nome da peça" formControlName="title" />
     </div>
     <div class="input-field col s4">
-      <input type="text" placeholder="Referência" formControlName="ref" [ngClass]="{'validate invalid': formControls?.ref?.errors?.unavailable}"/>
-      <span *ngIf="formControls?.ref?.errors?.unavailable"  data-error="Referência já cadastrada" data-success="right" class="helper-text"></span>
+      <input
+        type="text"
+        placeholder="Referência"
+        formControlName="ref"
+        [ngClass]="{
+          'validate invalid': formControls?.ref?.errors?.unavailable
+        }"
+      />
+      <span
+        *ngIf="formControls?.ref?.errors?.unavailable"
+        data-error="Referência já cadastrada"
+        data-success="right"
+        class="helper-text"
+      ></span>
     </div>
     <div class="input-field col s4">
       <input type="number" placeholder="Quantidade" formControlName="amount" />
@@ -24,9 +36,15 @@
   <div class="row">
     <div class="input-field col s4">
       <input
-        type="text"
+        currencyMask
         placeholder="Valor de custo"
         formControlName="value_cost"
+        [options]="{
+          prefix: 'R$ ',
+          thousands: '.',
+          decimal: ',',
+          align: 'left'
+        }"
       />
     </div>
     <div class="input-field col s4">
@@ -34,7 +52,13 @@
         type="text"
         placeholder="Valor de venda"
         formControlName="value_sell"
-        mask="separator.2" thousandSeparator=","
+        currencyMask
+        [options]="{
+          prefix: 'R$ ',
+          thousands: '.',
+          decimal: ',',
+          align: 'left'
+        }"
       />
     </div>
     <div class="col s4">
@@ -63,10 +87,7 @@
     </div>
   </div>
 
-  <button
-    class="btn red"
-    (click)="clean()"
-  >
+  <button class="btn red" (click)="clean()">
     Limpar
   </button>
   <button
