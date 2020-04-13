@@ -72,7 +72,7 @@ export class ProductsComponent implements OnInit {
 
   getCategories = () => this.categoriesService.get()
   .subscribe(
-    (categories:any) =>  this.categories = categories?.data,
+    (categories:any) =>  this.categories = categories,
     error => M.toast({html: error, classes:'fail'})
     );
 

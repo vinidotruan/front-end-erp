@@ -17,6 +17,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SalesComponent } from './sales/sales.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { SalesComponent } from './sales/sales.component';
     SidenavComponent,
     NavbarComponent,
     SalesComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
