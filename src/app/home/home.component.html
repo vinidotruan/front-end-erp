@@ -47,3 +47,15 @@
         </div>
     </div>
 </div>
+
+<div class="row">
+    <div class="section">
+        <div class="col s12">
+            <ul class="collection">
+                <li class="collection-header center"><h4>Atividades</h4></li>
+
+                <li *ngFor="let item of feedsInfos?.data" class="collection-item">{{ item?.hour }} {{ item?.action }}</li>
+              </ul>
+        </div>
+    </div>
+</div>
