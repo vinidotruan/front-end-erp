@@ -14,12 +14,13 @@ export class SidenavComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems, {});
-    var elems = document.querySelectorAll('.collapsible');
-    var instances = M.Collapsible.init(elems, {
-      accordion: false
+    
+    M.Collapsible.init(document.querySelectorAll('.collapsible'), {
+      accordion: true
     });
+
+    M.Sidenav.init(document.querySelectorAll('.sidenav'), {});
+
   }
 
   logout = () =>{

@@ -1,0 +1,22 @@
+@import "../vars";
+
+.collapsible li i {
+    -ms-transform: rotate(-90deg); /* IE 9 */
+    -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+    transform: rotate(-90deg);
+}
+
+.collapsible li.active i {
+    -ms-transform: rotate(0deg); /* IE 9 */
+    -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+    transform: rotate(0deg);
+}
+
+nav, .sidenav {
+    background: $dark-grey;
+    color: white;
+  
+    .material-icons {
+      color:white !important;
+    }
+}

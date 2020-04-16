@@ -26,21 +26,20 @@ nav, .sidenav {
     background-color: $grey-600;
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
-    width: 90%;
+    width: 100%;
   }
   li > a {
     color: white;
   }
   .collapsible-body, 
   .sidenav.fixed .collapsible-body {
-    background-color: $grey-600;
+    background-color: #232425;
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
   }
 }
-
 .sidenav .collapsible-header, .sidenav.fixed .collapsible-header {
-  padding: 0 32px;
+  padding: 0 26px;
 }
 
 .pagination li.active {
