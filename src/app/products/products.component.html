@@ -12,16 +12,20 @@
   <div class="row">    
     <div class="input-field col s4">
       <input type="text" placeholder="Nome da peça" formControlName="title" />
+      <label for="title">Título</label>
+      
     </div>
     <div class="input-field col s4">
       <input
         type="text"
         placeholder="Referência"
         formControlName="ref"
+        name="ref"
         [ngClass]="{
           'validate invalid': formControls?.ref?.errors?.unavailable
         }"
       />
+      <label for="ref">Referência</label>
       <span
         *ngIf="formControls?.ref?.errors?.unavailable"
         data-error="Referência já cadastrada"
@@ -30,15 +34,19 @@
       ></span>
     </div>
     <div class="input-field col s4">
-      <input type="number" placeholder="Quantidade" formControlName="amount" />
+      <input type="number" placeholder="Quantidade" formControlName="amount" name="amount"/>
+      <label for="amount">Quantidade</label>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s4">
+      <label for="value_cost">Valor de custo</label>
       <input
-        currencyMask
+        type="text"
         placeholder="Valor de custo"
         formControlName="value_cost"
+        name="value_cost"
+        currencyMask
         [options]="{
           prefix: 'R$ ',
           thousands: '.',
@@ -52,6 +60,7 @@
         type="text"
         placeholder="Valor de venda"
         formControlName="value_sell"
+        name="value_sell"
         currencyMask
         [options]="{
           prefix: 'R$ ',
@@ -60,6 +69,8 @@
           align: 'left'
         }"
       />
+      <label for="value_sell">Valor de venda</label>
+
     </div>
     <div class="col s4">
       <div class="row">

@@ -84,7 +84,9 @@ export class InventoryComponent implements OnInit {
     .subscribe(
       data => {
         M.toast({html: 'Baixa cadastrada', classses:'success'});
-        this.getProducts(this.page);
+        console.log(this.haveFilter());
+        (this.haveFilter()) ? this.search(`${this.service.filter}&page=${this.page}`): this.getProducts(this.page);
+
       }, error => {
         M.toast({ html: error?.amount, classes: 'fail'});
       }
@@ -94,7 +96,7 @@ export class InventoryComponent implements OnInit {
     .subscribe(
       data => {
         M.toast({html: 'Adicionado com sucesso', classses:'success'});
-        this.getProducts(this.page);
+        (this.haveFilter()) ? this.search(`${this.service.filter}&page=${this.page}`): this.getProducts(this.page);
       }, error => {
         M.toast({ html: error, classes: 'fail'});
       }

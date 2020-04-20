@@ -25,12 +25,15 @@ export class ProductsComponent implements OnInit {
     private service: ProductsService,
     private categoriesService: CategoriesService,
     private route: ActivatedRoute
-  ) { }
+  ) {
+
+   }
 
   ngOnInit(): void {
+    M.updateTextFields();
+
     this.productForm = this.formBuilder.group(new ProductForm);
     this.getCategories();
-
     if(this.route.snapshot.paramMap.get('id')) {
       this.service.find(this.route.snapshot.paramMap.get('id'))
         .subscribe(
@@ -76,14 +79,15 @@ export class ProductsComponent implements OnInit {
     error => M.toast({html: error, classes:'fail'})
     );
 
-    handleError = (e) => {
+  handleError = (e) => {
+      console.log(e);
       const formFields = Object.keys(this.productForm.value);
       const errorsFields = Object.keys(e);
       let fields:any = formFields.filter(value => errorsFields.includes(value));
       fields.map(f => this.productForm.controls[f].setErrors({'unavailable': true}))
-    }
+  }
 
-    clean = () => this.productForm.reset();
-    get formControls() { return this.productForm.controls; }
+  clean = () => this.productForm.reset();
+  get formControls() { return this.productForm.controls; }
 
 }
