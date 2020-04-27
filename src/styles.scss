@@ -1,6 +1,10 @@
 @import "./app/vars";
 @import "~@ng-select/ng-select/themes/material.theme.css";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
+body {
+  font-family: 'Montserrat', sans-serif;
+}
 header, main, footer {
   padding-left: 300px;
 }
@@ -67,10 +71,18 @@ nav, .sidenav {
   cursor: pointer;
 }
 
+.small {
+  font-size: 1em;
+}
+
 .background-round {
   padding: 15px;
   border-radius: 50%;
   background-color: rgba(0,0,0,.18);
+}
+
+.badge {
+  border-radius: 4px;
 }
 
 .gradient-45deg-light-blue-cyan {

@@ -84,7 +84,6 @@ export class InventoryComponent implements OnInit {
     .subscribe(
       data => {
         M.toast({html: 'Baixa cadastrada', classses:'success'});
-        console.log(this.haveFilter());
         (this.haveFilter()) ? this.search(`${this.service.filter}&page=${this.page}`): this.getProducts(this.page);
 
       }, error => {

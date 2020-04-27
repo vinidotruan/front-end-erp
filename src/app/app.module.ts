@@ -18,6 +18,9 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SalesComponent } from './sales/sales.component';
 import { HomeComponent } from './home/home.component';
+import { ClickOutsideDirective } from './click-outside.directive';
+import { UsersComponent } from './users/users.component';
+import { UsersFormComponent } from './users-form/users-form.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,9 @@ import { HomeComponent } from './home/home.component';
     NavbarComponent,
     SalesComponent,
     HomeComponent,
+    ClickOutsideDirective,
+    UsersComponent,
+    UsersFormComponent,
   ],
   imports: [
     BrowserModule,

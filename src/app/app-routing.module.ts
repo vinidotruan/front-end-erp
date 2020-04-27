@@ -7,11 +7,16 @@ import { ProductsComponent } from './products/products.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { HomeComponent } from './home/home.component';
+import { UsersComponent } from './users/users.component';
+import { UsersFormComponent } from './users-form/users-form.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'sales', component: SalesComponent, canActivate: [AuthGuard] },
+  { path: 'users', component: UsersComponent, canActivate: [AuthGuard] },
+  { path: 'users/:id', component: UsersFormComponent, canActivate: [AuthGuard] },
+  { path: 'users-form', component: UsersFormComponent, canActivate: [AuthGuard] },
   { path: 'products', component: ProductsComponent, canActivate: [AuthGuard] },
   { path: 'products/:id', component: ProductsComponent, canActivate: [AuthGuard] },
   { path: 'inventory-list', component: InventoryComponent, canActivate: [AuthGuard], data:{type:"list"} },

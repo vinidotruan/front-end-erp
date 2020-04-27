@@ -1,0 +1,45 @@
+<form
+  class="col s8 card-panel"
+  [formGroup]="userForm"
+  autocomplete="off"
+  autocomplete="false"
+>
+  <div class="row">
+    <div class="col s12 center-align">
+      <h4>Cadastrar Usuários</h4>
+    </div>
+  </div>
+
+  <div class="row">  
+
+    <div class="input-field col s4">
+      <input 
+        type="text" 
+        placeholder="Nome" 
+        formControlName="name"
+        />
+      <label for="name">Nome</label>
+    </div>
+
+    <div class="input-field col s4">
+      <input
+        type="text"
+        placeholder="Usuário para login"
+        formControlName="user"
+        name="user"
+      />
+      <label for="user">Usuário</label>
+    </div>
+
+    <div class="input-field col s4">
+      <input 
+        type="text"
+        placeholder="CPF"
+        formControlName="cpf" 
+        name="cpf"
+        mask="000.000.000-00"
+        />
+      <label for="cpf">CPF</label>
+    </div>
+  </div>
+</form>

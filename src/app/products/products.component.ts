@@ -80,7 +80,6 @@ export class ProductsComponent implements OnInit {
     );
 
   handleError = (e) => {
-      console.log(e);
       const formFields = Object.keys(this.productForm.value);
       const errorsFields = Object.keys(e);
       let fields:any = formFields.filter(value => errorsFields.includes(value));

@@ -1,0 +1,80 @@
+@import '../vars';
+
+.badge-point {
+    width: 10px;
+    height: 10px;
+    background: #6000af;
+    margin: 10px;
+    position: relative;
+    bottom: 4em;
+    display: block;
+    border-radius: 5px;
+    box-shadow: 0 0 20px 7px #6000af;
+
+    animation-name: pulse;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: running;
+}
+
+.notifications {
+    position: fixed;
+    z-index: 997;
+    right: 11em;
+    width: 20%;
+    background: $white;
+    top: 2em;
+    color: $dark-grey;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12), 0 1px 5px 0 rgba(0,0,0,.2);
+
+    li {
+        padding: 1em 2em;
+        
+        .title {
+            vertical-align: text-bottom;
+            margin-right: 11em;
+        }
+
+        &.right-align {
+            padding-bottom: 1em;
+        }
+
+        &.unread {
+            background: $grey-400;
+            color: black;
+        }
+
+        &.divider {
+            padding: 0;
+            width: 100%;
+        }        
+
+        .material-icons {
+            margin-right: 5px;
+        }
+
+        .material-icons.mark-as-read {
+            padding: 0.1em;
+            border-radius: 2px;
+        }
+        .background-round {
+            padding: 5px;
+        }
+    }
+}
+
+@keyframes pulse {
+    0%   {
+       box-shadow: 0 0 20px 3px #6000af;
+    }
+    100% { 
+      box-shadow: 0 0 20px 10px #6000af;
+    }    
+ }
+
+ul#nav-mobile li {
+    margin-right: 10em;
+}

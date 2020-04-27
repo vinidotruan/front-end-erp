@@ -26,7 +26,6 @@ export class LoginComponent implements OnInit {
     private authenticationService: AuthenticationService
   ) {
     if(this.authenticationService.currentUserValue) {
-      console.log('AA');
       // this.router.navigate(['/products']);
     }
    }
@@ -52,7 +51,6 @@ export class LoginComponent implements OnInit {
     .subscribe(
       data => this.router.navigate(['/products']),
       error => {
-        console.log(error);
         this.error = error;
         this.loading = false;
       }
