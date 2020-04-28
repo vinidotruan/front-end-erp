@@ -22,13 +22,15 @@
     }
     .collapsible-body, 
     .sidenav.fixed .collapsible-body {
-        background-color: #232425;
+        background-color: $grey-1000;
         border-top-right-radius: 30px;
         border-bottom-right-radius: 30px;
     }
 
     .divider {
         height: 5px;
+        background-color: $orange;
+        background-image: linear-gradient(30deg, $orange-100,$orange-200);
     }
 }
 
@@ -48,3 +50,4 @@ padding: 0 26px;
     -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
     transform: rotate(0deg);
 }
+
