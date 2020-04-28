@@ -18,9 +18,10 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SalesComponent } from './sales/sales.component';
 import { HomeComponent } from './home/home.component';
-import { ClickOutsideDirective } from './click-outside.directive';
 import { UsersComponent } from './users/users.component';
 import { UsersFormComponent } from './users-form/users-form.component';
+import { ClickOutsideDirective } from './click-outside.directive';
+import { HoverClassDirective } from './hover-class.directive';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { UsersFormComponent } from './users-form/users-form.component';
     ClickOutsideDirective,
     UsersComponent,
     UsersFormComponent,
+    HoverClassDirective,
   ],
   imports: [
     BrowserModule,

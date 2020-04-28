@@ -1,5 +1,5 @@
 <app-navbar [hidden]="hidden"></app-navbar>
 <app-sidenav [hidden]="hidden"></app-sidenav>
-<main class="container">
+<main class="container" [ngClass]="{'inside':!hidden}">
   <router-outlet></router-outlet>
 </main>

@@ -29,7 +29,7 @@
       <span
         *ngIf="formControls?.ref?.errors?.unavailable"
         data-error="Referência já cadastrada"
-        data-success="right"
+        data-succes="right"
         class="helper-text"
       ></span>
     </div>
@@ -102,14 +102,20 @@
     </div>
   </div>
 
-  <button class="btn red" (click)="clean()">
-    Limpar
-  </button>
-  <button
-    class="btn blue darken-1"
-    (click)="onSubmit()"
-    [disabled]="productForm?.invalid || loading"
-  >
-    Cadastrar
-  </button>
+  <div class="row center-align">
+    <div class="col s3 push-s3">
+      <button class="btn red darken-5" (click)="clean()">
+        Limpar
+      </button>
+    </div>
+    <div class="col s3 push-s3">
+      <button
+        class="btn orange darken-1"
+        (click)="onSubmit()"
+        [disabled]="productForm?.invalid || loading"
+      >
+        Cadastrar
+      </button>
+    </div>
+  </div>
 </form>

@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(this.f.user.value, this.f.password.value)
     .pipe(first())
     .subscribe(
-      data => this.router.navigate(['/products']),
+      data => this.router.navigate(['/']),
       error => {
         this.error = error;
         this.loading = false;

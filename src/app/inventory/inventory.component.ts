@@ -83,7 +83,7 @@ export class InventoryComponent implements OnInit {
   sell = () => this.salesService.store(this.saleForm.value)
     .subscribe(
       data => {
-        M.toast({html: 'Baixa cadastrada', classses:'success'});
+        M.toast({html: 'Baixa cadastrada', classses:'succes'});
         (this.haveFilter()) ? this.search(`${this.service.filter}&page=${this.page}`): this.getProducts(this.page);
 
       }, error => {
@@ -94,7 +94,7 @@ export class InventoryComponent implements OnInit {
   addAmount = () => this.service.update({ id: this.selectedProduct.id, amount:(this.amount+this.selectedProduct.amount) })
     .subscribe(
       data => {
-        M.toast({html: 'Adicionado com sucesso', classses:'success'});
+        M.toast({html: 'Adicionado com sucesso', classses:'succes'});
         (this.haveFilter()) ? this.search(`${this.service.filter}&page=${this.page}`): this.getProducts(this.page);
       }, error => {
         M.toast({ html: error, classes: 'fail'});

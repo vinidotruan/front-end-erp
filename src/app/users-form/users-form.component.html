@@ -42,4 +42,46 @@
       <label for="cpf">CPF</label>
     </div>
   </div>
+
+  <div class="row">  
+
+    <div class="input-field col s4">
+      <input 
+        type="email" 
+        placeholder="Email" 
+        formControlName="email"
+        />
+      <label for="email">Email</label>
+    </div>
+
+    <div class="input-field col s4">
+      <input
+        type="password"
+        placeholder="Senha"
+        formControlName="password"
+        name="password"
+      />
+      <label for="password">Password</label>
+    </div>
+
+    <div class="input-field col s4">
+      <ng-select
+        [items]="roles?.data"
+        bindLabel="name"
+        bindValue="id"
+        formControlName="role_id"
+        placeholder="Cargos"
+      ></ng-select>
+    </div>
+  </div>
+  <button class="btn red" (click)="clean()" *ngIf="!userForm?.value?.id">
+    Limpar
+  </button>
+  <button
+    class="btn blue darken-1"
+    (click)="onSubmit()"
+    [disabled]="userForm?.invalid"
+  >
+    {{ (userForm?.value?.id) ? "Editar":"Cadastrar" }}
+  </button>
 </form>

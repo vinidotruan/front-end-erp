@@ -1,5 +1,14 @@
 @import '../vars';
 
+nav, .sidenav {
+    background: $grey-10;
+    color: $grey-1000;
+    box-shadow: none;
+    .material-icons {
+      color:$grey-1000 !important;
+    }
+}
+
 .badge-point {
     width: 10px;
     height: 10px;

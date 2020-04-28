@@ -1,11 +1,10 @@
 <div class="navbar-fixed">
   <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo center">AUTOPEÇAS ERP</a>
+    <div class="nav-wrapper">      
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li class="clickable" (click)="showNotifications()">
           <span class="material-icons">
-            notifications_none
+            notifications
           </span>
           <span *ngIf="notifications?.data[0]?.unread" class="badge-point"></span>
         </li>

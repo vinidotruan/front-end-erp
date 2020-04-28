@@ -1,5 +1,42 @@
 @import "../vars";
 
+.sidenav {
+    background: $black-600;
+    color: white;
+  
+    .material-icons {
+      color:white !important;
+    }
+}
+
+.sidenav {
+    top: 0px;
+    li:hover:not(:first-child) {
+        background-color: $grey-600;
+        border-top-right-radius: 30px;
+        border-bottom-right-radius: 30px;
+        width: 100%;
+    }
+    li > a {
+        color: white;
+    }
+    .collapsible-body, 
+    .sidenav.fixed .collapsible-body {
+        background-color: #232425;
+        border-top-right-radius: 30px;
+        border-bottom-right-radius: 30px;
+    }
+
+    .divider {
+        height: 5px;
+    }
+}
+
+.sidenav .collapsible-header, .sidenav.fixed .collapsible-header {
+padding: 0 26px;
+}
+
+
 .collapsible li i {
     -ms-transform: rotate(-90deg); /* IE 9 */
     -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
@@ -10,13 +47,4 @@
     -ms-transform: rotate(0deg); /* IE 9 */
     -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
     transform: rotate(0deg);
-}
-
-nav, .sidenav {
-    background: $dark-grey;
-    color: white;
-  
-    .material-icons {
-      color:white !important;
-    }
 }
