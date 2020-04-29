@@ -22,6 +22,7 @@ import { UsersComponent } from './users/users.component';
 import { UsersFormComponent } from './users-form/users-form.component';
 import { ClickOutsideDirective } from './click-outside.directive';
 import { HoverClassDirective } from './hover-class.directive';
+import { ReportsObsoleteProductsComponent } from './reports-obsolete-products/reports-obsolete-products.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { HoverClassDirective } from './hover-class.directive';
     UsersComponent,
     UsersFormComponent,
     HoverClassDirective,
+    ReportsObsoleteProductsComponent,
   ],
   imports: [
     BrowserModule,

@@ -82,12 +82,12 @@
     </div>
     <div class="col s3 push-s3">
       <button
-    class="btn blue darken-1"
-    (click)="onSubmit()"
-    [disabled]="userForm?.invalid"
-  >
+        class="btn blue darken-1"
+        (click)="onSubmit()"
+        [disabled]="userForm?.invalid"
+      >
     {{ (userForm?.value?.id) ? "Editar":"Cadastrar" }}
-  </button>
+      </button>
     </div>
   </div>
   
