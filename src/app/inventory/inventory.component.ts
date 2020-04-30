@@ -80,7 +80,11 @@ export class InventoryComponent implements OnInit {
     var instances = M.FormSelect.init(elems, {});
   }
 
-  sell = () => this.salesService.store(this.saleForm.value)
+  sell = () => {
+
+    this.saleForm.controls['price'].setValue((this.saleForm.value.amount * this.selectedProduct.value_sell ));
+
+    this.salesService.store(this.saleForm.value)
     .subscribe(
       data => {
         M.toast({html: 'Baixa cadastrada', classses:'succes'});
@@ -89,7 +93,8 @@ export class InventoryComponent implements OnInit {
       }, error => {
         M.toast({ html: error?.amount, classes: 'fail'});
       }
-    )
+    );
+  }
 
   addAmount = () => this.service.update({ id: this.selectedProduct.id, amount:(this.amount+this.selectedProduct.amount) })
     .subscribe(

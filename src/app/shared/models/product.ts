@@ -6,8 +6,8 @@ export class Product {
     ref: number;
     category_id: number;
     amount: number;
-    value_cost: string;
-    value_sell: string;
+    value_cost: any;
+    value_sell: any;
     application: string;
     category?:Category
 }
