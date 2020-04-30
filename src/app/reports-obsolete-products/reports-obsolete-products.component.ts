@@ -35,5 +35,3 @@ export class ReportsObsoleteProductsComponent implements OnInit {
       )
   }
 }
-
-}
