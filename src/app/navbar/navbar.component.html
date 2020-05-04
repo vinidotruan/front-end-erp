@@ -6,7 +6,7 @@
           <span class="material-icons">
             notifications
           </span>
-          <span *ngIf="notifications?.data[0]?.unread" class="badge-point"></span>
+          <span *ngIf="!notifications?.data[0]?.read_at" class="badge-point"></span>
         </li>
       </ul>
     </div>
@@ -18,13 +18,13 @@
     <span class="title">
       NOTIFICAÇÕES
     </span>
-    <span class="material-icons blue white-text mark-as-read clickable" (click)="markAllAsRead()">
+    <span class="material-icons white-text mark-as-read clickable" (click)="markAllAsRead()">
       playlist_add_check
     </span>
   </li>
   <li class="divider"></li>
   <li *ngFor="let notification of notifications?.data" [ngClass]="{'unread': (notification?.read_at == null)}">
-    <span class="material-icons background-round small red white-text">
+    <span class="material-icons background-round small orange darken-3">
       trending_down
     </span>
     {{notification?.data?.name}} ({{notification?.data?.title}})

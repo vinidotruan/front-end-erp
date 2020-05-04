@@ -28,8 +28,7 @@ export class NavbarComponent implements OnInit {
       
     this.router.events.forEach((event) => {
       if(event instanceof NavigationStart) {
-        (this.show) !?? this.getNotifications();
-        
+        this.getNotifications();
       }
       // NavigationEnd
       // NavigationCancel

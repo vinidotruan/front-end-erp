@@ -24,6 +24,7 @@ import { ClickOutsideDirective } from './click-outside.directive';
 import { HoverClassDirective } from './hover-class.directive';
 import { ReportsObsoleteProductsComponent } from './reports-obsolete-products/reports-obsolete-products.component';
 import { ReportsObsoleteListComponent } from './reports-obsolete-list/reports-obsolete-list.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { ReportsObsoleteListComponent } from './reports-obsolete-list/reports-ob
     HoverClassDirective,
     ReportsObsoleteProductsComponent,
     ReportsObsoleteListComponent,
+    NotificationsComponent,
   ],
   imports: [
     BrowserModule,

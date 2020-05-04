@@ -11,7 +11,8 @@ import { ActivatedRoute } from '@angular/router';
 export class SalesComponent implements OnInit {
 
   salesInfos;
-  
+  page;
+
   constructor(
     private route: ActivatedRoute,
     private service: SalesService
@@ -26,14 +27,27 @@ export class SalesComponent implements OnInit {
       )
   }
 
-  getSales = (page?) => this.service.get(page)
+  getSales = (page?) => {
+    this.page = page;
+    this.service.get(page)
     .subscribe(
       data => this.salesInfos = data,
       error => M.toast({ html:error, classes:'fail' })
-    )
+    );
+  }
 
     
   get pagination() {
-    return [...Array(this.salesInfos?.last_page).keys()];
+    const paginationInfo = [...Array(this.salesInfos?.last_page).keys()];
+    const actual = paginationInfo.findIndex(pagination => pagination == this.page);
+    const limiter = actual+4;
+    let pages = [];
+    pages.push(actual-1);
+
+    for (let i = actual; i < limiter; i++) {
+      pages.push(i);
+    }
+    console.log(pages);
+    return pages;
   }
 }
