@@ -28,7 +28,8 @@ export class NavbarComponent implements OnInit {
       
     this.router.events.forEach((event) => {
       if(event instanceof NavigationStart) {
-        this.getNotifications();
+        (this.show) !?? this.getNotifications();
+        
       }
       // NavigationEnd
       // NavigationCancel
@@ -61,7 +62,7 @@ export class NavbarComponent implements OnInit {
   }
 
   getNotifications = () => {
-    this.notificationsService.get(this.authService.currentUserValue.id)
+    this.notificationsService.get(this.authService?.currentUserValue?.id)
     .subscribe(
       data => {
         this.notifications = data;

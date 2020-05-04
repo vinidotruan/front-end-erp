@@ -1,6 +1,6 @@
 <ul id="slide-out" class="sidenav sidenav-fixed">
   <li>
-    <a routerLink="/inventory-list">
+    <a routerLink="/home">
       <i class="material-icons">local_car_wash</i>
       AUTOPEÇAS
     </a>
@@ -10,11 +10,11 @@
   <li class="no-padding">
     <ul class="collapsible collapsible-accordion" data-collapsible="expandable" materialize="collapsible">
       <li>
-        <a class="collapsible-header">Cadastrar Produto<i class="material-icons">arrow_drop_down</i></a>
+        <a class="collapsible-header"><span>Cadastrar Produto</span><i class="material-icons">arrow_drop_down</i></a>
         <div class="collapsible-body">
           <ul>
-            <li><a routerLink="/products"><i class="material-icons">add</i>Novo</a></li>
-            <li><a routerLink="/inventory-add"><i class="material-icons">arrow_upward</i>Acrescentar ao estoque</a></li>
+            <li><a routerLink="/products"><i class="material-icons">add</i><span>Novo</span> </a></li>
+            <li><a routerLink="/inventory-add"><i class="material-icons">arrow_upward</i><span>Acrescentar ao estoque</span></a></li>
           </ul>
         </div>
       </li>
@@ -24,11 +24,11 @@
   <li class="no-padding">
     <ul class="collapsible collapsible-accordion" data-collapsible="expandable" materialize="collapsible">
       <li>
-        <a class="collapsible-header">Usuários<i class="material-icons">arrow_drop_down</i></a>
+        <a class="collapsible-header"><span>Usuários</span><i class="material-icons">arrow_drop_down</i></a>
         <div class="collapsible-body">
           <ul>
-            <li><a routerLink="/users-form"><i class="material-icons">add</i>Cadastrar Usuários</a></li>
-            <li><a routerLink="/users"><i class="material-icons">people</i>Listas Usuários</a></li>
+            <li><a routerLink="/users-form"><i class="material-icons">add</i><span>Cadastrar Usuários</span></a></li>
+            <li><a routerLink="/users"><i class="material-icons">people</i><span>Listas Usuários</span></a></li>
           </ul>
         </div>
       </li>
@@ -38,26 +38,26 @@
   <li class="no-padding">
     <ul class="collapsible collapsible-accordion" data-collapsible="expandable" materialize="collapsible">
       <li>
-        <a class="collapsible-header">Relatórios<i class="material-icons">arrow_drop_down</i></a>
+        <a class="collapsible-header"><span>Relatórios</span><i class="material-icons">arrow_drop_down</i></a>
         <div class="collapsible-body">
           <ul>
-            <li><a routerLink="/reports"><i class="material-icons">add</i>Gerar Relatório</a></li>
-            <li><a routerLink="/reports-list"><i class="material-icons">people</i>Listar Relatórios</a></li>
+            <li><a routerLink="/reports"><i class="material-icons">add</i><span>Gerar Relatório</span></a></li>
+            <li><a routerLink="/reports-list"><i class="material-icons">people</i><span>Listar Relatórios</span></a></li>
           </ul>
         </div>
       </li>
     </ul>
   </li>
 
-  <li><a routerLink="/inventory-list"><i class="material-icons">list</i>Consultar Estoque</a></li>
+  <li><a routerLink="/inventory-list"><i class="material-icons">list</i><span>Consultar Estoque</span></a></li>
 
-  <li><a routerLink="/inventory-edit"><i class="material-icons">edit</i>Editar Estoque</a></li>
-  <li><a routerLink="/inventory-sell"><i class="material-icons">shopping_cart</i>Dar Baixa</a></li>
-  <li><a routerLink="/sales"><i class="material-icons">assessment</i>Listar Baixas</a></li>
+  <li><a routerLink="/inventory-edit"><i class="material-icons">edit</i><span>Editar Estoque</span></a></li>
+  <li><a routerLink="/inventory-sell"><i class="material-icons">shopping_cart</i><span>Dar Baixa</span></a></li>
+  <li><a routerLink="/sales"><i class="material-icons">assessment</i><span>Listar Baixas</span></a></li>
 
-  <li><a routerLink="/categories"><i class="material-icons">bookmarks</i>Cadastrar Categorias</a></li>
-  <li><a routerLink="/profile"><i class="material-icons">account_box</i>Editar Perfil</a></li>
-  <li (click)="logout()"><a class="clickable"><i class="material-icons">cancel_presentation</i>Sair</a></li>
+  <li><a routerLink="/categories"><i class="material-icons">bookmarks</i><span>Cadastrar Categorias</span></a></li>
+  <li><a routerLink="/profile"><i class="material-icons">account_box</i><span>Editar Perfil</span></a></li>
+  <li (click)="logout()"><a class="clickable"><i class="material-icons">cancel_presentation</i><span>Sair</span></a></li>
   
 
 </ul>

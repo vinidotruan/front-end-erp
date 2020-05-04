@@ -6,7 +6,7 @@
 >
   <div class="row">
     <div class="col s12 center-align">
-      <h4>Cadastrar Produtos</h4>
+      <h4>{{this.productForm?.value?.id ? "Editar" : "Cadastrar"}} Produtos</h4>
     </div>
   </div>
   <div class="row">    
@@ -83,9 +83,10 @@
             [items]="categories"
             bindLabel="name"
             bindValue="id"
-            formControlName="category_id"
             placeholder="Categorias"
+            formControlName="category_id"
           ></ng-select>
+
         </div>
       </div>
     </div>
@@ -103,18 +104,13 @@
   </div>
 
   <div class="row center-align">
-    <div class="col s3 push-s3">
-      <button class="btn red darken-5" (click)="clean()">
-        Limpar
-      </button>
-    </div>
-    <div class="col s3 push-s3">
+    <div class="col s3">
       <button
         class="btn orange darken-1"
         (click)="onSubmit()"
         [disabled]="productForm?.invalid || loading"
       >
-        Cadastrar
+        {{this.productForm?.value?.id ? "Salvar" : "Cadastrar"}}
       </button>
     </div>
   </div>

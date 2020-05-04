@@ -63,7 +63,7 @@
             <td>{{ product.title }}</td>
             <td>{{ product.value_buy }}</td>
             <td>{{ product.value_sell }}</td>
-            <td>{{ product.application }}</td>
+            <td id="application">{{ product.application }}</td>
             <td>{{ product.amount }}</td>
             <td *ngIf="screenType === 'sell'">
                 <a class="green-text modal-trigger clickable" data-target="sells" (click)="selectProduct(product)">

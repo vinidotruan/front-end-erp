@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     private authenticationService: AuthenticationService
   ) {
     if(this.authenticationService.currentUserValue) {
-      // this.router.navigate(['/products']);
+      this.router.navigate(['/']);
     }
    }
   
@@ -51,6 +51,7 @@ export class LoginComponent implements OnInit {
     .subscribe(
       data => this.router.navigate(['/']),
       error => {
+        M.toast({ html:"Usuário ou senha incorretos", classes:"fail"})
         this.error = error;
         this.loading = false;
       }
