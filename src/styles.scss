@@ -155,3 +155,21 @@ input:not([type]):focus:not([readonly]) + label, input[type="text"]:not(.browser
   height: 100%;
   padding: 5em;
 }
+
+.tabs .tab a:hover, .tabs .tab a.active {
+  background-color: transparent;
+  color: $orange;
+}
+
+.tabs .tab a:focus, .tabs .tab a:focus.active {
+  background-color: rgba(255, 111, 0, 0.2);
+  outline: none;
+}
+
+.tabs .indicator {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  background-color: $orange;
+  will-change: left, right;
+}

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ReportsObsoleteProductsService {
+export class ReportsService {
 
   constructor(
     private http: HttpClient
@@ -16,6 +16,6 @@ export class ReportsObsoleteProductsService {
   /**
    * Store a reports
    */
-  post = (report):Observable<any> => this.http.post(`${environment.apiUrl}/reports`, report);
+  obsoleteProducts = (report):Observable<any> => this.http.post(`${environment.apiUrl}/reports/obsolete-products`, report);
 
 }

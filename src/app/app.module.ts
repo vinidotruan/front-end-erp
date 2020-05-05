@@ -22,9 +22,8 @@ import { UsersComponent } from './users/users.component';
 import { UsersFormComponent } from './users-form/users-form.component';
 import { ClickOutsideDirective } from './click-outside.directive';
 import { HoverClassDirective } from './hover-class.directive';
-import { ReportsObsoleteProductsComponent } from './reports-obsolete-products/reports-obsolete-products.component';
-import { ReportsObsoleteListComponent } from './reports-obsolete-list/reports-obsolete-list.component';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { ReportsComponent } from './reports/reports.component';
 
 @NgModule({
   declarations: [
@@ -41,8 +40,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
     UsersComponent,
     UsersFormComponent,
     HoverClassDirective,
-    ReportsObsoleteProductsComponent,
-    ReportsObsoleteListComponent,
+    ReportsComponent,
     NotificationsComponent,
   ],
   imports: [
