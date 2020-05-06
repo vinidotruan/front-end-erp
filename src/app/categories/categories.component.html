@@ -18,21 +18,12 @@
     </div>
 </form>
 
-<ul class="pagination">
-    <li [ngClass]="{'disabled' : (categoriesInfos?.current_page === 1)}">
-        <a routerLink="/categories" [queryParams]="{'page':(categoriesInfos?.current_page - 1)}">
-            <i class="material-icons">chevron_left</i>
-        </a>
-    </li>
-    <li *ngFor="let page of pagination; let i = index" class="waves-effect waves-orange" [ngClass]="{'active' : ((i+1) === categoriesInfos?.current_page)}">
-        <a routerLink="/categories" [queryParams]="{'page':(i + 1)}">{{ i + 1 }} </a>
-    </li>
-    <li [ngClass]="{'disabled' : (categoriesInfos?.current_page === categoriesInfos?.last_page)}">
-        <a routerLink="/categories" [queryParams]="{'page':(categoriesInfos?.current_page + 1)}">
-            <i class="material-icons">chevron_right</i>
-        </a>
-    </li>
-</ul> 
+<app-pagination
+    [arrayInfos]="categoriesInfos"
+    moduleUrl="categories"
+    [page]="categoriesInfos?.current_page"
+></app-pagination>
+
 <table>
     <thead>
         <tr>
@@ -62,18 +53,8 @@
         </tr>
     </tbody>
 </table>
-<ul class="pagination">
-    <li [ngClass]="{'disabled' : (categoriesInfos?.current_page === 1)}">
-        <a href="categories?page={{(categoriesInfos?.current_page - 1)}}">
-            <i class="material-icons">chevron_left</i>
-        </a>
-    </li>
-    <li *ngFor="let page of pagination; let i = index" class="waves-effect" [ngClass]="{'active' : ((i+1) === categoriesInfos?.current_page)}">
-        <a href="categories?page={{(i+1)}}">{{ i + 1 }} </a>
-    </li>
-    <li [ngClass]="{'disabled' : (categoriesInfos?.current_page === categoriesInfos?.last_page)}">
-        <a href="categories?page={{(categoriesInfos?.current_page + 1)}}">
-            <i class="material-icons">chevron_right</i>
-        </a>
-    </li>
-</ul> 
+<app-pagination
+    [arrayInfos]="categoriesInfos"
+    moduleUrl="categories"
+    [page]="categoriesInfos?.current_page"
+></app-pagination>

@@ -33,22 +33,6 @@
     [page]="productsInfos?.current_page"
 ></app-pagination>
 
-
-<ul class="pagination">
-    <li [ngClass]="{'disabled' : (productsInfos?.current_page === 1)}">
-        <a routerLink="/inventory-{{screenType}}" [queryParams]="{'page':(productsInfos?.current_page - 1)}">
-            <i class="material-icons">chevron_left</i>
-        </a>
-    </li>
-    <li *ngFor="let page of pagination; let i = index" class="waves-effect" [ngClass]="{'active' : ((i+1) === productsInfos?.current_page)}">
-        <a routerLink="/inventory-{{screenType}}" [queryParams]="{'page':(i + 1)}">{{ i + 1 }} </a>
-    </li>
-    <li [ngClass]="{'disabled' : (productsInfos?.current_page === productsInfos?.last_page)}">
-        <a routerLink="/inventory-{{screenType}}" [queryParams]="{'page':(productsInfos?.current_page + 1)}">
-            <i class="material-icons">chevron_right</i>
-        </a>
-    </li>
-</ul>
 <table>
     <thead>
         <tr>
@@ -96,21 +80,11 @@
         </tr>
     </tbody>
 </table>
-<ul class="pagination">
-    <li [ngClass]="{'disabled' : (productsInfos?.current_page === 1)}">
-        <a routerLink="/inventory-{{screenType}}" [queryParams]="{'page':(productsInfos?.current_page - 1)}">
-            <i class="material-icons">chevron_left</i>
-        </a>
-    </li>
-    <li *ngFor="let page of pagination; let i = index" class="waves-effect" [ngClass]="{'active' : ((i+1) === productsInfos?.current_page)}">
-        <a routerLink="/inventory-{{screenType}}" [queryParams]="{'page':(i + 1)}">{{ i + 1 }} </a>
-    </li>
-    <li [ngClass]="{'disabled' : (productsInfos?.current_page === productsInfos?.last_page)}">
-        <a routerLink="/inventory-{{screenType}}" [queryParams]="{'page':(productsInfos?.current_page + 1)}">
-            <i class="material-icons">chevron_right</i>
-        </a>
-    </li>
-</ul>
+<app-pagination
+    [arrayInfos]="productsInfos"
+    moduleUrl="inventory-{{screenType}}"
+    [page]="productsInfos?.current_page"
+></app-pagination>
 
 <!-- Modal Structure -->
 <div id="sells" class="modal sells">
