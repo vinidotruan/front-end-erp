@@ -27,6 +27,13 @@
     </form>
 </div>
 
+<app-pagination
+    [arrayInfos]="productsInfos"
+    moduleUrl="inventory-{{screenType}}"
+    [page]="productsInfos?.current_page"
+></app-pagination>
+
+
 <ul class="pagination">
     <li [ngClass]="{'disabled' : (productsInfos?.current_page === 1)}">
         <a routerLink="/inventory-{{screenType}}" [queryParams]="{'page':(productsInfos?.current_page - 1)}">

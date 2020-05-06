@@ -24,6 +24,7 @@ import { ClickOutsideDirective } from './click-outside.directive';
 import { HoverClassDirective } from './hover-class.directive';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { ReportsComponent } from './reports/reports.component';
+import { PaginationComponent } from './shared/components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { ReportsComponent } from './reports/reports.component';
     HoverClassDirective,
     ReportsComponent,
     NotificationsComponent,
+    PaginationComponent,
   ],
   imports: [
     BrowserModule,

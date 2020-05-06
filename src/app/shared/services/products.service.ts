@@ -39,9 +39,9 @@ export class ProductsService {
   /**
    * Search products
    */
-  search = (product) => {
-    this.filter = product;
-    return this.http.get(`${environment.apiUrl}/products/search?${product}`);
+  search = (filter, page?) => {
+    this.filter = filter;
+    return this.http.get(`${environment.apiUrl}/products/search?${filter}&page=${(page)?page:1}`);
   }
 
 }

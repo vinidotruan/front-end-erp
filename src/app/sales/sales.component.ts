@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { SalesService } from '@shared/services/sales.service';
 import * as M from 'materialize-css';
 import { ActivatedRoute } from '@angular/router';
-
+import { Pagination } from '@shared/models/pagination';
+import { PaginationHelper } from '@shared/helpers/pagination';
 @Component({
   selector: 'app-sales',
   templateUrl: './sales.component.html',
@@ -10,12 +11,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SalesComponent implements OnInit {
 
-  salesInfos;
+  salesInfos:Pagination;
   page;
 
   constructor(
     private route: ActivatedRoute,
-    private service: SalesService
+    private service: SalesService,
+    private paginationHelper: PaginationHelper
   ) { }
 
   ngOnInit(): void {
@@ -25,6 +27,7 @@ export class SalesComponent implements OnInit {
         ({page}) => this.getSales(page),
         error => M.toast({ html:error, classes:'fail' })
       )
+
   }
 
   getSales = (page?) => {
@@ -34,20 +37,6 @@ export class SalesComponent implements OnInit {
       data => this.salesInfos = data,
       error => M.toast({ html:error, classes:'fail' })
     );
-  }
 
-    
-  get pagination() {
-    const paginationInfo = [...Array(this.salesInfos?.last_page).keys()];
-    const actual = paginationInfo.findIndex(pagination => pagination == this.page);
-    const limiter = actual+4;
-    let pages = [];
-    pages.push(actual-1);
-
-    for (let i = actual; i < limiter; i++) {
-      pages.push(i);
-    }
-    console.log(pages);
-    return pages;
   }
 }

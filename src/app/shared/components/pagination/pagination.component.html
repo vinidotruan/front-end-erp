@@ -1,0 +1,24 @@
+<ul class="pagination">
+    <li [ngClass]="{'disabled' : (arrayInfos?.current_page === 1)}">
+        <a 
+        [routerLink]="['/'+moduleUrl ]" 
+        [queryParams]="{'page':(arrayInfos?.current_page - 1)}"
+        >
+            <i class="material-icons">chevron_left</i>
+        </a>
+    </li>
+    <li *ngFor="let page of pagination;" class="waves-effect" [ngClass]="{'active' : (page === arrayInfos?.current_page)}">
+        <a 
+        [routerLink]="['/'+moduleUrl ]" 
+        [queryParams]="{'page':page}"
+        >{{ page }} </a>
+    </li>
+    <li [ngClass]="{'disabled' : (arrayInfos?.current_page === arrayInfos?.last_page)}">
+        <a 
+        [routerLink]="['/'+moduleUrl ]" 
+        [queryParams]="{'page':(arrayInfos?.current_page + 1)}"
+        >
+            <i class="material-icons">chevron_right</i>
+        </a>
+    </li>
+</ul>
