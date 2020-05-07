@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import * as M from 'materialize-css';
-import { ReportObsoleteProduct } from '@shared/forms/reportObsoleteProduct';
 import { FormBuilder, FormGroup } from '@angular/forms';
+
 import { ReportsService } from '@shared/services/reports.service';
 import { AuthenticationService } from '@shared/services/authentication.service';
+import { ReportObsoleteProduct } from '@shared/forms/reportObsoleteProduct';
+
+import * as M from 'materialize-css';
+import { Product } from '@shared/models/product';
 @Component({
   selector: 'app-reports',
   templateUrl: './reports.component.html',
@@ -12,7 +15,7 @@ import { AuthenticationService } from '@shared/services/authentication.service';
 export class ReportsComponent implements OnInit {
 
   reportObsoleteForm: FormGroup;
-  reportInventoryDown: FormGroup;
+  reportInventoryDown:Product[];
   data;
 
   constructor(
@@ -25,6 +28,7 @@ export class ReportsComponent implements OnInit {
     M.Tabs.init(document.querySelectorAll('.tabs'), {swipeable:true});
     M.updateTextFields();
     this.reportObsoleteForm = this.formBuilder.group(new ReportObsoleteProduct(this.authService?.currentUserValue?.id));
+    this.getInventoryDownProducts();
   }
 
   onSubmit() {  
@@ -32,6 +36,14 @@ export class ReportsComponent implements OnInit {
       .subscribe(
         data => this.data = data,
         error => M.toast({ html:error, classes:'error' })
+      )
+  }
+
+  getInventoryDownProducts = () => {
+    this.service.inventoryDownProducts()
+      .subscribe(
+        data => this.reportInventoryDown = data,
+        error => M.toast({ html: 'Erro ao buscar os produtos', classes: 'fail'})
       )
   }
 }

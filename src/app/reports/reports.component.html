@@ -57,6 +57,30 @@
                 </div>
             </div>
         </div>
-        <div id="inventory-down-products">Test 2</div>
+        <div id="inventory-down-products">
+            <div class="row">
+                <div class="col s12 list">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Aplicação</th>
+                                <th>Quantidade limite</th>
+                                <th>Quantidade Total</th>
+                            </tr>
+                        </thead>
+                    
+                        <tbody>
+                            <tr *ngFor="let product of reportInventoryDown">
+                                <td>{{ product?.title }}</td>
+                                <td>{{ product?.application }}</td>
+                                <td>{{ product?.limit_amount }}</td>
+                                <td>{{ product?.amount }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

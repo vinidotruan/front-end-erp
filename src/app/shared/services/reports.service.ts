@@ -18,4 +18,6 @@ export class ReportsService {
    */
   obsoleteProducts = (report):Observable<any> => this.http.post(`${environment.apiUrl}/reports/obsolete-products`, report);
 
+  inventoryDownProducts = ():Observable<any> => this.http.get(`${environment.apiUrl}/reports/inventory-down-products`);
+
 }
