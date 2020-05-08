@@ -37,6 +37,7 @@
                     </div>
                 </form>
                 <div class="col s8 list">
+
                     <table>
                         <thead>
                             <tr>
@@ -57,7 +58,15 @@
                 </div>
             </div>
         </div>
-        <div id="inventory-down-products">
+        <div id="inventory-down-products" style="padding:5%">
+            <div class="row">
+                <div class="col s3">
+                    <a class="btn green darken-1" (click)="downloadPdfInventoryDown()"><i class="material-icons left">get_app</i>Baixar</a>
+                </div>
+                <div class="col s3">
+                    <a class="btn orange darken-1" (click)="getPdfInventoryDown()"><i class="material-icons left">visibility</i>Visualizar</a>
+                </div>
+            </div>
             <div class="row">
                 <div class="col s12 list">
                     <table>

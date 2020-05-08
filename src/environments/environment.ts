@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  apiUrl: "http://localhost:8000/api"
+  apiUrl: "http://localhost:8000/api",
+  getInventoryDownUrl: "http://localhost:8000/api/reports/pdf/get-inventory-down-products",
+  downloadInventoryDownUrl: "http://localhost:8000/api/reports/pdf/download-inventory-down-products"
 };
 
 /*
