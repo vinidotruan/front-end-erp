@@ -1,0 +1,28 @@
+
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Usuário</th>
+            <th>CPF</th>
+            <th>Tipo</th>
+            <th *ngIf="authUser.role_id === 1">Editar</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let user of usersInfos?.data">
+            <td>{{ user?.name }}</td>
+            <td>{{ user?.user }}</td>
+            <td>{{ user?.cpf }}</td>
+            <td>{{ user?.role.name }}</td>
+            <td *ngIf="authUser.role_id === 1">
+                <a class="orange-text" routerLink="//users/{{user.id}}">
+                    <i class="material-icons">
+                        create
+                    </i>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>

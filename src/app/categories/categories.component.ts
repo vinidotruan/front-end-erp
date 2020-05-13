@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { CategoriesService } from '@shared/services/categories.service';
 import { CategoryForm } from '@shared/forms/categories';
@@ -10,7 +10,9 @@ import { Router, ActivatedRoute } from '@angular/router';
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.scss']
 })
+
 export class CategoriesComponent implements OnInit {
+  @ViewChild('name') nameField: ElementRef;
 
   public categoryForm: FormGroup;
   public categoriesInfos;
@@ -30,6 +32,7 @@ export class CategoriesComponent implements OnInit {
   }
 
   selectCategory = (category) => {
+    this.nameField.nativeElement.focus();
     this.category = category;
     this.fillForm();
   }
@@ -50,7 +53,7 @@ export class CategoriesComponent implements OnInit {
       this.service.update(this.categoryForm.value)
       .subscribe(
         (response:any) => {
-          M.toast({html: response?.message, classes:'success'}); 
+          M.toast({html: response?.message, classes:'succes'}); 
           this.getCategories();
           this.emptyForm();
         },
@@ -63,7 +66,7 @@ export class CategoriesComponent implements OnInit {
     this.service.store(this.categoryForm.value)
     .subscribe(
       (data:any) => {  
-        M.toast({html: data?.message, classes:'success'}); 
+        M.toast({html: data?.message, classes:'succes'}); 
         this.getCategories()
       },
       error => M.toast({html: error, classes:'fail'}),
@@ -81,7 +84,7 @@ export class CategoriesComponent implements OnInit {
   deleteCategory = (category) => this.service.delete(category)
     .subscribe(
       data => {
-        M.toast({ html:'Deletado com sucesso', classes:'success' });
+        M.toast({ html:'Deletado com sucesso', classes:'succes' });
         this.getCategories();
       },
       error => M.toast({ html:'Erro ao deletar', classes:'fail' })

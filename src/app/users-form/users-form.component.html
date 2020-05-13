@@ -1,0 +1,95 @@
+<form
+  class="col s8 card-panel"
+  [formGroup]="userForm"
+  autocomplete="off"
+  autocomplete="false"
+>
+  <div class="row">
+    <div class="col s12 center-align">
+      <h4>Cadastrar Usuários</h4>
+    </div>
+  </div>
+
+  <div class="row">  
+
+    <div class="input-field col s4">
+      <input 
+        type="text" 
+        placeholder="Nome" 
+        formControlName="name"
+        />
+      <label for="name">Nome</label>
+    </div>
+
+    <div class="input-field col s4">
+      <input
+        type="text"
+        placeholder="Usuário para login"
+        formControlName="user"
+        name="user"
+      />
+      <label for="user">Usuário</label>
+    </div>
+
+    <div class="input-field col s4">
+      <input 
+        type="text"
+        placeholder="CPF"
+        formControlName="cpf" 
+        name="cpf"
+        mask="000.000.000-00"
+        />
+      <label for="cpf">CPF</label>
+    </div>
+  </div>
+
+  <div class="row">  
+
+    <div class="input-field col s4">
+      <input 
+        type="email" 
+        placeholder="Email" 
+        formControlName="email"
+        />
+      <label for="email">Email</label>
+    </div>
+
+    <div class="input-field col s4">
+      <input
+        type="password"
+        placeholder="Senha"
+        formControlName="password"
+        name="password"
+      />
+      <label for="password">Password</label>
+    </div>
+
+    <div class="input-field col s4">
+      <ng-select
+        [items]="roles?.data"
+        bindLabel="name"
+        bindValue="id"
+        formControlName="role_id"
+        placeholder="Cargos"
+      ></ng-select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s3 push-s3">
+      <button class="btn red" (click)="clean()" *ngIf="!userForm?.value?.id">
+        Limpar
+      </button>
+    </div>
+    <div class="col s3 push-s3">
+      <button
+        class="btn blue darken-1"
+        (click)="onSubmit()"
+        [disabled]="userForm?.invalid"
+      >
+    {{ (userForm?.value?.id) ? "Editar":"Cadastrar" }}
+      </button>
+    </div>
+  </div>
+  
+  
+</form>

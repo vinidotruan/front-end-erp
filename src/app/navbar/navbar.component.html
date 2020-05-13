@@ -1,7 +1,32 @@
 <div class="navbar-fixed">
   <nav>
-      <div class="nav-wrapper">
-        <a href="#" class="brand-logo center">AUTOPEÇAS ERP</a>
-      </div>
+    <div class="nav-wrapper">      
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li class="clickable" (click)="showNotifications()">
+          <span class="material-icons">
+            notifications
+          </span>
+          <span *ngIf="!notifications?.data[0]?.read_at" class="badge-point"></span>
+        </li>
+      </ul>
+    </div>
   </nav>
 </div>
+
+<ul class="notifications .dropdown-contet" *ngIf="show" (clickOutside)="hideNotifications()">
+  <li class="right-align">
+    <span class="title">
+      NOTIFICAÇÕES
+    </span>
+    <span class="material-icons white-text mark-as-read clickable" (click)="markAllAsRead()">
+      playlist_add_check
+    </span>
+  </li>
+  <li class="divider"></li>
+  <li *ngFor="let notification of notifications?.data" [ngClass]="{'unread': (notification?.read_at == null)}">
+    <span class="material-icons background-round small orange darken-3">
+      trending_down
+    </span>
+    {{notification?.data?.name}} ({{notification?.data?.title}})
+  </li>
+</ul>

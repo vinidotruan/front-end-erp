@@ -26,8 +26,7 @@ export class LoginComponent implements OnInit {
     private authenticationService: AuthenticationService
   ) {
     if(this.authenticationService.currentUserValue) {
-      console.log('AA');
-      // this.router.navigate(['/products']);
+      this.router.navigate(['/']);
     }
    }
   
@@ -50,9 +49,9 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(this.f.user.value, this.f.password.value)
     .pipe(first())
     .subscribe(
-      data => this.router.navigate(['/products']),
+      data => this.router.navigate(['/']),
       error => {
-        console.log(error);
+        M.toast({ html:"Usuário ou senha incorretos", classes:"fail"})
         this.error = error;
         this.loading = false;
       }

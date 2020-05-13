@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Sale } from '@shared/models/sale';
 import { environment } from '@environment/environment';
+import { Pagination } from '@shared/models/pagination';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,8 @@ export class SalesService {
   /**
    * Return all sales
    */
-  get = (page = -1):Observable<Sale[]> => {
-    return this.http.get<Sale[]>(`${environment.apiUrl}/sales?page=${page}`);
+  get = (page = -1):Observable<Pagination> => {
+    return this.http.get<Pagination>(`${environment.apiUrl}/sales?page=${page}`);
   }
 
   /**

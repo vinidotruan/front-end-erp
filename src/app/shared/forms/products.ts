@@ -10,4 +10,5 @@ export class ProductForm {
     value_cost = new FormControl('', Validators.required);
     value_sell = new FormControl('', Validators.required);
     amount = new FormControl('', Validators.required);    
+    limit_amount = new FormControl('', Validators.required);    
 }

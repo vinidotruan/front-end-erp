@@ -1,0 +1,19 @@
+@import '../vars.scss';
+
+#add-amount {
+    form {
+        margin-top: 1em;
+    }
+}
+
+td {
+    a:hover {
+        i {
+            transform: rotate(360deg);
+        }
+    }
+
+    &#application {
+        font-size: .8em;
+    }
+}

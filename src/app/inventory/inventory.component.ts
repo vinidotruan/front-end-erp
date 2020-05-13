@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '@shared/services/products.service';
 import { Product } from '@shared/models/product';
 import * as M from 'materialize-css';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 import { SalesService } from '@shared/services/sales.service';
 import { AuthenticationService } from '@shared/services/authentication.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { SaleForm } from '@shared/forms/sales';
+import { Pagination } from '@shared/models/pagination';
 
 @Component({
   selector: 'app-inventory',
@@ -31,7 +32,8 @@ export class InventoryComponent implements OnInit {
     private service: ProductsService,
     private salesService: SalesService,
     private formBuilder: FormBuilder,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -39,10 +41,10 @@ export class InventoryComponent implements OnInit {
     this.screenType = this.route.snapshot.data.type;
     this.initializeSaleForm();
     this.route.queryParams
-      .subscribe(
-        ({page}) => {
+    .subscribe(
+      ({page}) => {
           this.page = page;
-          (this.haveFilter()) ? this.search(`${this.service.filter}&page=${page}`): this.getProducts(page);
+          (this.haveFilter()) ? this.search(`${this.service.filter}`, page): this.getProducts(page);
         }, 
         (error) => M.toast({html:error, classes: 'fail'})
       );
@@ -80,39 +82,57 @@ export class InventoryComponent implements OnInit {
     var instances = M.FormSelect.init(elems, {});
   }
 
-  sell = () => this.salesService.store(this.saleForm.value)
+  sell = () => {
+
+    this.saleForm.controls['price'].setValue((this.saleForm.value.amount * this.selectedProduct.value_sell ));
+
+    this.salesService.store(this.saleForm.value)
     .subscribe(
       data => {
-        M.toast({html: 'Baixa cadastrada', classses:'success'});
-        console.log(this.haveFilter());
+        M.toast({html: 'Baixa cadastrada', classses:'succes'});
         (this.haveFilter()) ? this.search(`${this.service.filter}&page=${this.page}`): this.getProducts(this.page);
 
       }, error => {
         M.toast({ html: error?.amount, classes: 'fail'});
       }
-    )
+    );
+  }
 
   addAmount = () => this.service.update({ id: this.selectedProduct.id, amount:(this.amount+this.selectedProduct.amount) })
     .subscribe(
       data => {
-        M.toast({html: 'Adicionado com sucesso', classses:'success'});
+        M.toast({html: 'Adicionado com sucesso', classses:'succes'});
         (this.haveFilter()) ? this.search(`${this.service.filter}&page=${this.page}`): this.getProducts(this.page);
       }, error => {
         M.toast({ html: error, classes: 'fail'});
       }
     )
     
-  search = (filter?) => this.service.search(
-      (filter??`${this.filterType}=${this.filter}`)
+  search = (filter?, page?) => {
+    this.service.search(
+      (filter??`${this.filterType}=${this.filter}`),page
     ).subscribe(
-      products => this.productsInfos = products,
+      (products:Pagination) => {
+        this.productsInfos = products;
+        this.changingQueryParams();
+      },
       error => M.toast({ html: error, classes:"fail"})
     )
-
+}
   haveFilter = () => this.service.filter;
 
   initializeSaleForm = () => {
     this.saleForm = this.formBuilder.group(new SaleForm);
     this.saleForm.patchValue({ user_id: this.loggedUser.id });
   }
+
+    
+  private changingQueryParams() {
+    this.router.navigate([], { 
+      queryParams: {
+        page: this.productsInfos?.current_page
+      }
+    });
+  }
+
 }

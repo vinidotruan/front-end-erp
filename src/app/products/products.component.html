@@ -6,7 +6,7 @@
 >
   <div class="row">
     <div class="col s12 center-align">
-      <h4>Cadastrar Produtos</h4>
+      <h4>{{this.productForm?.value?.id ? "Editar" : "Cadastrar"}} Produtos</h4>
     </div>
   </div>
   <div class="row">    
@@ -29,13 +29,17 @@
       <span
         *ngIf="formControls?.ref?.errors?.unavailable"
         data-error="Referência já cadastrada"
-        data-success="right"
+        data-succes="right"
         class="helper-text"
       ></span>
     </div>
-    <div class="input-field col s4">
+    <div class="input-field col s2">
       <input type="number" placeholder="Quantidade" formControlName="amount" name="amount"/>
       <label for="amount">Quantidade</label>
+    </div>
+    <div class="input-field col s2">
+      <input type="number" placeholder="Quantidade Limite" formControlName="limit_amount" name="limit_amount"/>
+      <label for="limit_amount">Quantidade Limite</label>
     </div>
   </div>
   <div class="row">
@@ -79,9 +83,10 @@
             [items]="categories"
             bindLabel="name"
             bindValue="id"
-            formControlName="category_id"
             placeholder="Categorias"
+            formControlName="category_id"
           ></ng-select>
+
         </div>
       </div>
     </div>
@@ -98,14 +103,15 @@
     </div>
   </div>
 
-  <button class="btn red" (click)="clean()">
-    Limpar
-  </button>
-  <button
-    class="btn blue darken-1"
-    (click)="onSubmit()"
-    [disabled]="productForm?.invalid || loading"
-  >
-    Cadastrar
-  </button>
+  <div class="row center-align">
+    <div class="col s3">
+      <button
+        class="btn orange darken-1"
+        (click)="onSubmit()"
+        [disabled]="productForm?.invalid || loading"
+      >
+        {{this.productForm?.value?.id ? "Salvar" : "Cadastrar"}}
+      </button>
+    </div>
+  </div>
 </form>
