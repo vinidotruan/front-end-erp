@@ -11,7 +11,6 @@ import { ProductsComponent } from './products/products.component';
 import { UsersFormComponent } from './users-form/users-form.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { CategoriesComponent } from './categories/categories.component';
-import { NotificationsComponent } from './notifications/notifications.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -34,7 +33,6 @@ const routes: Routes = [
 
   { path: 'reports', component: ReportsComponent, canActivate: [AuthGuard] },
 
-  { path: 'notifications', component: NotificationsComponent, canActivate: [AuthGuard] },
   
   { path: '**', redirectTo: '' }
 ];

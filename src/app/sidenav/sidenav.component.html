@@ -44,7 +44,7 @@
   <li><a routerLink="/sales"><i class="material-icons">assessment</i><span>Listar Baixas</span></a></li>
 
   <li><a routerLink="/categories"><i class="material-icons">bookmarks</i><span>Cadastrar Categorias</span></a></li>
-  <li><a routerLink="/profile"><i class="material-icons">account_box</i><span>Editar Perfil</span></a></li>
+  <li><a [routerLink]="['users', user?.id]" ><i class="material-icons">account_box</i><span>Editar Perfil</span></a></li>
   <li (click)="logout()"><a class="clickable"><i class="material-icons">cancel_presentation</i><span>Sair</span></a></li>
   
 

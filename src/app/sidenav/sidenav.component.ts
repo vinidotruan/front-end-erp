@@ -8,13 +8,15 @@ import * as M from 'materialize-css';
 })
 export class SidenavComponent implements OnInit {
 
+  user;
+
   constructor(
     private authService: AuthenticationService
 
   ) { }
 
   ngOnInit(): void {
-    
+    this.user = this.authService.currentUserValue;    
     M.Collapsible.init(document.querySelectorAll('.collapsible'), {
       accordion: true
     });
