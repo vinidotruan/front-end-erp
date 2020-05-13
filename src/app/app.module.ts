@@ -22,9 +22,10 @@ import { UsersComponent } from './users/users.component';
 import { UsersFormComponent } from './users-form/users-form.component';
 import { ClickOutsideDirective } from './click-outside.directive';
 import { HoverClassDirective } from './hover-class.directive';
-import { NotificationsComponent } from './notifications/notifications.component';
 import { ReportsComponent } from './reports/reports.component';
 import { PaginationComponent } from './shared/components/pagination/pagination.component';
+import { LoadingComponent } from './loading/loading.component';
+import { LoadingInterceptorService } from '@shared/helpers/loading.interceptor';
 
 @NgModule({
   declarations: [
@@ -42,8 +43,8 @@ import { PaginationComponent } from './shared/components/pagination/pagination.c
     UsersFormComponent,
     HoverClassDirective,
     ReportsComponent,
-    NotificationsComponent,
     PaginationComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,6 +59,7 @@ import { PaginationComponent } from './shared/components/pagination/pagination.c
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptorService, multi: true }
   ],
   bootstrap: [AppComponent]
 })
