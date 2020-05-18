@@ -1,0 +1,54 @@
+.sidenav {
+  background: #252525;
+  color: white;
+  top: 0px;
+}
+
+.sidenav .material-icons {
+  color: white !important;
+}
+
+.sidenav li:hover:not(:first-child) {
+  background-color: #6C757D;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  width: 100%;
+}
+
+.sidenav li > a {
+  color: white;
+}
+
+.sidenav .collapsible-body,
+.sidenav .sidenav.fixed .collapsible-body {
+  background-color: #425257;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.sidenav .divider {
+  height: 5px;
+  background-color: #FF6D00;
+  background-image: linear-gradient(30deg, #ff9d52, #ff6b47);
+}
+
+.sidenav .collapsible-header, .sidenav.fixed .collapsible-header {
+  padding: 0 26px;
+}
+
+.collapsible li .icon {
+  margin-right: 32px;
+  vertical-align: middle;
+  /* IE 9 */
+  -webkit-transform: rotate(-90deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(-90deg);
+}
+
+.collapsible li.active .icon {
+  /* IE 9 */
+  -webkit-transform: rotate(0deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+/*# sourceMappingURL=sidenav.component.css.map */
