@@ -16,6 +16,10 @@ header, main, footer {
   }
 }
 
+.disabled {
+  pointer-events: none;
+  color: $grey-100;
+}
 
 .pagination li.active {
   background-color: $orange-300;

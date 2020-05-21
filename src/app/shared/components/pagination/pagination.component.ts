@@ -16,6 +16,7 @@ export class PaginationComponent implements OnInit {
 
   constructor(
     private paginationHelper: PaginationHelper,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -32,5 +33,7 @@ export class PaginationComponent implements OnInit {
     return (pagination != -1) ? pagination : [];
   }
 
-
+  goTo = (page) =>  {
+    this.router.navigate([this.moduleUrl], { queryParams: { page: page } });
+  }
 }
