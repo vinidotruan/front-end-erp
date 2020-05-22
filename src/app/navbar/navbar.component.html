@@ -6,7 +6,7 @@
           <span class="material-icons">
             notifications
           </span>
-          <span *ngIf="!notifications?.data[0]?.read_at" class="badge-point"></span>
+          <span *ngIf="(notifications?.data[0]?.read_at == null)" class="badge-point"></span>
         </li>
       </ul>
     </div>

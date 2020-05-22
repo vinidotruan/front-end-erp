@@ -1,24 +1,21 @@
 <ul class="pagination">
-    <li [ngClass]="{'disabled' : (arrayInfos?.current_page === 1)}">
-        <a 
-        [routerLink]="['/'+moduleUrl ]" 
-        [queryParams]="{'page':(arrayInfos?.current_page - 1)}"
-        >
-            <i class="material-icons">chevron_left</i>
-        </a>
+    <li 
+    class="clickable"
+    [ngClass]="{'disabled' : (arrayInfos?.current_page === 1)}"
+    (click)="goTo(arrayInfos?.current_page - 1)">
+        <i class="material-icons">chevron_left</i>
     </li>
-    <li *ngFor="let page of pagination;" class="waves-effect" [ngClass]="{'active' : (page === arrayInfos?.current_page)}">
-        <a 
-        [routerLink]="['/'+moduleUrl ]" 
-        [queryParams]="{'page':page}"
-        >{{ page }} </a>
+    <li 
+    *ngFor="let page of pagination" 
+    class="waves-effect" 
+    [ngClass]="{'active' : (page === arrayInfos?.current_page)}" 
+    (click)="goTo(page)">
+        <a>{{ page }} </a>
     </li>
-    <li [ngClass]="{'disabled' : (arrayInfos?.current_page === arrayInfos?.last_page)}">
-        <a 
-        [routerLink]="['/'+moduleUrl ]" 
-        [queryParams]="{'page':(arrayInfos?.current_page + 1)}"
-        >
-            <i class="material-icons">chevron_right</i>
-        </a>
+    <li 
+    class="clickable"
+    [ngClass]="{'disabled' : (arrayInfos?.current_page === arrayInfos?.last_page)}" 
+    (click)="goTo(arrayInfos?.current_page + 1)">
+        <i class="material-icons">chevron_right</i>
     </li>
 </ul>

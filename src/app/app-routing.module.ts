@@ -11,6 +11,7 @@ import { ProductsComponent } from './products/products.component';
 import { UsersFormComponent } from './users-form/users-form.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { RecoveryPasswordComponent } from './recovery-password/recovery-password.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -32,7 +33,8 @@ const routes: Routes = [
   { path: 'categories', component: CategoriesComponent, canActivate: [AuthGuard] },
 
   { path: 'reports', component: ReportsComponent, canActivate: [AuthGuard] },
-
+  
+  { path: 'recovery-password', component: RecoveryPasswordComponent },
   
   { path: '**', redirectTo: '' }
 ];
