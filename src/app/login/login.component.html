@@ -1,6 +1,6 @@
 
 <div class="row valign-wrapper">
-    <form class="col s12 pull-s2 login" [formGroup]="loginForm">
+    <form class="col s12 pull-s2 login" [formGroup]="loginForm" *ngIf="!recoveryPass">
         <div class="row">
             <div class="col s8 push-s2">
                 <div class="row">
@@ -24,9 +24,39 @@
                     </div>
                 </div>
                 <br>
-                <span> <a href="">Esqueceu a senha?</a></span>
+                <span class="orange-text clickable" (click)="recoveryPass=true"> Esqueceu a senha?</span>
             </div>
         </div>
-        
+    </form>
+    <form class="col s12 pull-s2 login" [formGroup]="recoveryForm" *ngIf="recoveryPass">
+        <div class="row back clickable">
+            <div class="col s12" (click)="recoveryPass=false">
+                <span class="material-icons">
+                    keyboard_arrow_left
+                </span>
+                <span>Entrar</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s8 push-s2">
+                <div class="row">
+                    <div class="col s12">
+                        <h5 class="">Recuperar senha</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Usuário" id="user" type="text" class="validate" formControlName="user">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s6">
+                        <button class="waves-effect waves-light btn orange darken-3 white-text" (click)="recovery()">
+                            Entrar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </form>
 </div>

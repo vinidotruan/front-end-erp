@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from '@shared/services/authentication.service';
 import { first } from 'rxjs/operators';
@@ -14,6 +14,8 @@ import * as M from 'materialize-css';
 export class LoginComponent implements OnInit {
 
   public loginForm: FormGroup;
+  public recoveryForm: FormGroup;
+  recoveryPass = false;
   loading = false;
   submitted = false;
   returnUrl: string;
@@ -33,6 +35,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     M.updateTextFields();
     this.loginForm = this.formBuilder.group(new Login);
+    this.recoveryForm = this.formBuilder.group({
+      user : new FormControl('', Validators.required)
+    });
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';    
   }
 
@@ -56,6 +61,16 @@ export class LoginComponent implements OnInit {
         this.loading = false;
       }
     )
+  }
+
+
+  recovery = () => {
+    this.authenticationService.createRecoveryPassord(this.recoveryForm.value)
+      .subscribe(
+        data => M.toast({ html: "Email enviado!"}),
+        error => M.toast({ html: error, classes:'fail'}),
+      )
+
   }
 
 }

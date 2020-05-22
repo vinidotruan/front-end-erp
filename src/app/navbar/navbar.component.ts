@@ -13,7 +13,7 @@ import { take } from 'rxjs/operators';
 })
 export class NavbarComponent implements OnInit {
 
-  notifications;
+  notifications = { data: [{read_at:''}]};
   show = false;
   clickOutCounter = 0;
 
@@ -21,12 +21,14 @@ export class NavbarComponent implements OnInit {
     private notificationsService: NotificationsService,
     private authService: AuthenticationService,
     private router: Router
-
+    
   ) { }
 
   ngOnInit(): void {
-    const result = location?.pathname.indexOf('login') > -1 || location?.pathname.indexOf('recovery-password') > -1;
+    console.log(this.notifications?.data[0]?.read_at == null)
     this.router.events.forEach((event) => {
+      const result = location?.pathname.indexOf('login') > -1 || location?.pathname.indexOf('recovery-password') > -1;
+      console.log(this.notifications?.data[0]?.read_at == null)
       if(event instanceof NavigationStart) {
         if( !result) {
           this.getNotifications();
