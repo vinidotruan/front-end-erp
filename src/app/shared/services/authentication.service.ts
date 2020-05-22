@@ -39,6 +39,14 @@ export class AuthenticationService {
         return this.http.get<any>(`${environment.apiUrl}/auth/logout`);
     }
 
+    findToken = (token) => {
+        return this.http.get(`${environment.apiUrl}/password/find/${token}`);
+    }
+
+    recoveryPassword = (recoveryForm) => {
+        return this.http.post(`${environment.apiUrl}/password/reset`, recoveryForm);
+    }
+
     isLogged = () => {
         return (this.currentUserValue);
     }

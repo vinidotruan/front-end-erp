@@ -25,10 +25,12 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-      
+    const result = location?.pathname.indexOf('login') > -1 || location?.pathname.indexOf('recovery-password') > -1;
     this.router.events.forEach((event) => {
       if(event instanceof NavigationStart) {
-        this.getNotifications();
+        if( !result) {
+          this.getNotifications();
+        }
       }
       // NavigationEnd
       // NavigationCancel

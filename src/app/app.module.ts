@@ -26,6 +26,7 @@ import { ReportsComponent } from './reports/reports.component';
 import { PaginationComponent } from './shared/components/pagination/pagination.component';
 import { LoadingComponent } from './loading/loading.component';
 import { LoadingInterceptorService } from '@shared/helpers/loading.interceptor';
+import { RecoveryPasswordComponent } from './recovery-password/recovery-password.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { LoadingInterceptorService } from '@shared/helpers/loading.interceptor';
     ReportsComponent,
     PaginationComponent,
     LoadingComponent,
+    RecoveryPasswordComponent,
   ],
   imports: [
     BrowserModule,

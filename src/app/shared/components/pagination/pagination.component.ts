@@ -33,7 +33,7 @@ export class PaginationComponent implements OnInit {
     return (pagination != -1) ? pagination : [];
   }
 
-  goTo = (page) =>  {
+  goTo = (page = 1) =>  {
     this.router.navigate([this.moduleUrl], { queryParams: { page: page } });
   }
 }
