@@ -5,10 +5,10 @@
         </div>
     </div>
     <div class="row">
-        <div class="input-field col s8">
+        <div class="input-field col s12 m8">
             <input #name type="text" placeholder="Nome da categoria" formControlName="name">
         </div>
-        <div class="col s3">
+        <div class="col s6 m3">
             <button class="btn orange darken-1" [disabled]="loading" (click)="onSubmit()">{{(!category)?"Cadastrar":"Editar"}}</button>
         </div>
     </div>
