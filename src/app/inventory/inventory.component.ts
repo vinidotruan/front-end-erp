@@ -33,7 +33,7 @@ export class InventoryComponent implements OnInit {
     private salesService: SalesService,
     private formBuilder: FormBuilder,
     private authenticationService: AuthenticationService,
-    private router: Router,
+    public router: Router,
   ) {}
 
   ngOnInit(): void {
