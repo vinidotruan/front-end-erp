@@ -1,8 +1,9 @@
 
-<div class="row valign-wrapper">
-    <form class="col s12 pull-s2 login" [formGroup]="loginForm" *ngIf="!recoveryPass">
+<div class="row valign-wrapper loginBg">
+    <form class="col s12 m8 pull-m2 login" [formGroup]="loginForm" *ngIf="!recoveryPass">
+        <div class="logo">Autopeças</div>
         <div class="row">
-            <div class="col s8 push-s2">
+            <div class="col s12 black-background">
                 <div class="row">
                     <div class="col s12">
                         <h5 class="">Entrar</h5>
@@ -17,7 +18,7 @@
                       </div>
                 </div>
                 <div class="row">
-                    <div class="col s6">
+                    <div class="col s12 m4">
                         <button class="waves-effect waves-light btn orange darken-3 white-text" (click)="onSubmit()">
                             Entrar
                         </button>

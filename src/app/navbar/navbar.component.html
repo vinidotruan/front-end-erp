@@ -1,12 +1,22 @@
 <div class="navbar-fixed">
   <nav>
     <div class="nav-wrapper">      
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li class="clickable" (click)="showNotifications()">
+      <ul id="nav-mobile" class="right">
+        <li class="clickable icon-pulldown" (click)="showNotifications()">
           <span class="material-icons">
             notifications
           </span>
           <span *ngIf="(notifications?.data[0]?.read_at == null)" class="badge-point"></span>
+        </li>
+        <li class="icon-pulldown user-icon">
+          <span class="material-icons">
+            account_circle
+          </span>
+        </li>
+        <li>
+          <span>
+            {{this.loggedUserName}}
+          </span>
         </li>
       </ul>
     </div>

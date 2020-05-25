@@ -156,9 +156,18 @@ input:not([type]):focus:not([readonly]) + label, input[type="text"]:not(.browser
   // bottom: 3.5em;
 }
 
-.modal {
-  height: 100%;
-  padding: 5em;
+@media only screen and (min-width: 1024px){
+  .modal {
+    height: 100%;
+    padding: 5em;
+  }
+}
+
+@media only screen and (max-width: 1024px){
+  .modal {
+    height: 100%;
+    padding: 0.2em;
+  }
 }
 
 .tabs .tab a:hover, .tabs .tab a.active {

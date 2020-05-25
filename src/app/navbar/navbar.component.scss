@@ -9,6 +9,14 @@ nav, .sidenav {
     }
 }
 
+.user-icon{
+    margin-right: 5px !important;
+}
+
+.icon-pulldown{
+    margin-top: 0.5em;
+}
+
 .badge-point {
     width: 10px;
     height: 10px;
@@ -29,55 +37,115 @@ nav, .sidenav {
     animation-play-state: running;
 }
 
-.notifications {
-    position: fixed;
-    z-index: 997;
-    right: 11em;
-    width: 20%;
-    background: $black-600;
-    max-height: 50%;
-    overflow-y: auto;
-    top: 2em;
-    color: $white;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12), 0 1px 5px 0 rgba(0,0,0,.2);
+@media only screen and (min-width: 1024px){
 
-    li {
-        padding: 1em 2em;
+    .notifications {
+        position: fixed;
+        z-index: 997;
+        right: 11em;
+        width: 20%;
         background: $black-600;
-        .title {
-            vertical-align: super;
-            margin-right: 1em;
-        }
-
-        &.right-align {
-            padding-bottom: 1em;
-        }
-
-        &.unread {
-            background: $grey-400;
-            color: black;
-        }
-
-        &.divider {
-            padding: 0;
-            width: 100%;
-            height: 5px;
-            background-color: $orange;
-            background-image: linear-gradient(30deg, $orange-100,$orange-200);
-        }        
-
-        .material-icons {
-            margin-right: 5px;
-        }
-
-        .material-icons.mark-as-read {
-            padding: 0.1em;
-            border-radius: 2px;
-        }
-        .background-round {
-            padding: 5px;
+        max-height: 50%;
+        overflow-y: auto;
+        top: 2em;
+        color: $white;
+        box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12), 0 1px 5px 0 rgba(0,0,0,.2);
+    
+        li {
+            padding: 1em 2em;
+            background: $black-600;
+            .title {
+                vertical-align: super;
+                margin-right: 1em;
+            }
+    
+            &.right-align {
+                padding-bottom: 1em;
+            }
+    
+            &.unread {
+                background: $grey-400;
+                color: black;
+            }
+    
+            &.divider {
+                padding: 0;
+                width: 100%;
+                height: 5px;
+                background-color: $orange;
+                background-image: linear-gradient(30deg, $orange-100,$orange-200);
+            }        
+    
+            .material-icons {
+                margin-right: 5px;
+            }
+    
+            .material-icons.mark-as-read {
+                padding: 0.1em;
+                border-radius: 2px;
+            }
+            .background-round {
+                padding: 5px;
+            }
         }
     }
+
+}
+
+@media only screen and (max-width: 1024px){
+
+    .notifications {
+        position: fixed;
+        z-index: 997;
+        left: 4em;
+        width: 66%;
+        margin-left: 50px;
+        background: $black-600;
+        max-height: 50%;
+        overflow-y: auto;
+        top: 2em;
+        color: $white;
+        box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12), 0 1px 5px 0 rgba(0,0,0,.2);
+    
+        li {
+            padding: 1em 2em;
+            background: $black-600;
+            .title {
+                vertical-align: super;
+                margin-right: 1em;
+            }
+    
+            &.right-align {
+                padding-bottom: 1em;
+            }
+    
+            &.unread {
+                background: $grey-400;
+                color: black;
+            }
+    
+            &.divider {
+                padding: 0;
+                width: 100%;
+                height: 5px;
+                background-color: $orange;
+                background-image: linear-gradient(30deg, $orange-100,$orange-200);
+            }        
+    
+            .material-icons {
+                margin-right: 5px;
+            }
+    
+            .material-icons.mark-as-read {
+                padding: 0.1em;
+                border-radius: 2px;
+            }
+            .background-round {
+                padding: 5px;
+            }
+        }
+    }
+
 }
 
 @keyframes pulse {
@@ -90,5 +158,5 @@ nav, .sidenav {
  }
 
 ul#nav-mobile li {
-    margin-right: 10em;
+    margin-right: 2em;
 }
