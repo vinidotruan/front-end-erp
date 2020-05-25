@@ -188,10 +188,6 @@ input:not([type]):focus:not([readonly]) + label, input[type="text"]:not(.browser
   will-change: left, right;
 }
 
-::ng-deep .ng-select.custom {
-  min-height: 0px;
-  max-width: 350px;
-  }
-  ::ng-deep .ng-select.dropdown {
-  border: 1px solid black;
-  }
+.ng-select .ng-select-container:after {
+  border-bottom:none;
+}
