@@ -28,14 +28,8 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.notifications?.data[0]?.read_at == null)
-    this.service.find('1')
-    .subscribe(
-      data => this.loggedUserName = data.name
-    )
     this.router.events.forEach((event) => {
       const result = location?.pathname.indexOf('login') > -1 || location?.pathname.indexOf('recovery-password') > -1;
-      console.log(this.notifications?.data[0]?.read_at == null)
       if(event instanceof NavigationStart) {
         if( !result) {
           this.getNotifications();
