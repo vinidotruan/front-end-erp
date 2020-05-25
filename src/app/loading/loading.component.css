@@ -1,0 +1,21 @@
+.wrapper {
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  z-index: 9999;
+}
+
+.wrapper .preloader-wrapper {
+  position: absolute;
+  /* display: none; */
+  z-index: 99999;
+  right: 50%;
+  top: 50%;
+}
+
+.spinner-orange-only {
+  border-color: #ff5a27;
+}
+/*# sourceMappingURL=loading.component.css.map */

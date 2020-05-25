@@ -10,7 +10,7 @@
   <li class="no-padding">
     <ul class="collapsible collapsible-accordion" data-collapsible="expandable" materialize="collapsible">
       <li>
-        <a class="collapsible-header"><span>Cadastrar Produto</span><i class="material-icons">arrow_drop_down</i></a>
+        <a class="collapsible-header"><span class="material-icons icon">arrow_drop_down</span><span>Cadastrar Produto</span></a>
         <div class="collapsible-body">
           <ul>
             <li><a routerLink="/products"><i class="material-icons">add</i><span>Novo</span> </a></li>
@@ -24,7 +24,7 @@
   <li class="no-padding">
     <ul class="collapsible collapsible-accordion" data-collapsible="expandable" materialize="collapsible">
       <li>
-        <a class="collapsible-header"><span>Usuários</span><i class="material-icons">arrow_drop_down</i></a>
+        <a class="collapsible-header"><span class="material-icons icon">arrow_drop_down</span><span>Usuários</span></a>
         <div class="collapsible-body">
           <ul>
             <li><a routerLink="/users-form"><i class="material-icons">add</i><span>Cadastrar Usuários</span></a></li>
@@ -44,7 +44,7 @@
   <li><a routerLink="/sales"><i class="material-icons">assessment</i><span>Listar Baixas</span></a></li>
 
   <li><a routerLink="/categories"><i class="material-icons">bookmarks</i><span>Cadastrar Categorias</span></a></li>
-  <li><a [routerLink]="['users', user?.id]" ><i class="material-icons">account_box</i><span>Editar Perfil</span></a></li>
+  <li><a *ngIf="user" [routerLink]="['users', user?.id]" ><i class="material-icons">account_box</i><span>Editar Perfil</span></a></li>
   <li (click)="logout()"><a class="clickable"><i class="material-icons">cancel_presentation</i><span>Sair</span></a></li>
   
 

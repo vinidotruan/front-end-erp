@@ -1,0 +1,13 @@
+#add-amount form {
+  margin-top: 1em;
+}
+
+td a:hover i {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+td#application {
+  font-size: .8em;
+}
+/*# sourceMappingURL=inventory.component.css.map */

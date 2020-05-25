@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AACI,WADO,CACP,IAAI,CAAC;EACD,UAAU,EAAE,GAAG;CAClB;;AAGL,AAEQ,EAFN,CACE,CAAC,AAAA,MAAM,CACH,CAAC,CAAC;EACE,SAAS,EAAE,cAAc;CAC5B;;AAJT,AAOI,EAPF,AAOG,YAAY,CAAC;EACV,SAAS,EAAE,IAAI;CAClB",
+    "sources": [
+        "inventory.component.scss",
+        "../vars.scss"
+    ],
+    "names": [],
+    "file": "inventory.component.css"
+}

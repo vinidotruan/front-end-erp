@@ -1,0 +1,9 @@
+.btn.orange.darken-1 {
+  margin-top: 1.5em;
+}
+
+td a:hover i {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+/*# sourceMappingURL=categories.component.css.map */
