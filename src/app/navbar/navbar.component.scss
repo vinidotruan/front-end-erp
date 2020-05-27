@@ -94,6 +94,13 @@ nav, .sidenav {
 
 @media only screen and (max-width: 1024px){
 
+    .logged-user-name{
+        max-width: 100px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
     .notifications {
         position: fixed;
         z-index: 997;
