@@ -28,6 +28,10 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.service.find(this.authService.currentUserValue.id)
+    .subscribe(
+      data => this.loggedUserName = data.name
+    )
     this.router.events.forEach((event) => {
       const result = location?.pathname.indexOf('login') > -1 || location?.pathname.indexOf('recovery-password') > -1;
       if(event instanceof NavigationStart) {
