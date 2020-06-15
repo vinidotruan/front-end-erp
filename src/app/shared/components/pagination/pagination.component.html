@@ -18,4 +18,11 @@
     (click)="goTo(arrayInfos?.current_page + 1)">
         <i class="material-icons">chevron_right</i>
     </li>
+    <li 
+    class="clickable"
+    [ngClass]="{'disabled' : (arrayInfos?.current_page === arrayInfos?.last_page)}" 
+    (click)="goTo(arrayInfos?.last_page)">
+        <i class="material-icons">last_page
+        </i>
+    </li>
 </ul>

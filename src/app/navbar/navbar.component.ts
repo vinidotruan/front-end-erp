@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NotificationsService } from '@shared/services/notifications.service';
 import { AuthenticationService } from '@shared/services/authentication.service';
+import { UserService } from '@shared/services/user.service';
 
 import * as M from 'materialize-css';
 import { Router, Event, NavigationStart } from '@angular/router';
@@ -16,19 +17,23 @@ export class NavbarComponent implements OnInit {
   notifications = { data: [{read_at:''}]};
   show = false;
   clickOutCounter = 0;
+  loggedUserName = "";
 
   constructor(
     private notificationsService: NotificationsService,
     private authService: AuthenticationService,
+    private service: UserService,
     private router: Router
     
   ) { }
 
   ngOnInit(): void {
-    console.log(this.notifications?.data[0]?.read_at == null)
+    this.service.find(this.authService.currentUserValue.id)
+    .subscribe(
+      data => this.loggedUserName = data.name
+    )
     this.router.events.forEach((event) => {
       const result = location?.pathname.indexOf('login') > -1 || location?.pathname.indexOf('recovery-password') > -1;
-      console.log(this.notifications?.data[0]?.read_at == null)
       if(event instanceof NavigationStart) {
         if( !result) {
           this.getNotifications();

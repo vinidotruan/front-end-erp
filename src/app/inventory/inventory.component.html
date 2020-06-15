@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col s12 center">
-        <h3>Estoque/Baixas</h3>
+        <h3>{{this.router.url == "/inventory-sell" ? "Dar baixa em produtos" : this.router.url == "/inventory-edit" ? "Editar estoque" : "Consultar estoque"}}</h3>
     </div>
 </div>
 
@@ -10,7 +10,7 @@
     </div>
     <form class="col s12">
         <div class="row">
-            <div class="input-field col s4">
+            <div class="input-field col m4 s12">
                 <select [(ngModel)]="filterType" name="filterType" id="filterType" placeholder="Título">
                   <!-- <option value="" disable selected>Título</option> -->
                   <option value="title" selected>Título</option>
@@ -19,7 +19,7 @@
                 <label for="filterType">Selecione o filtro</label>
               </div>
             
-            <div class="input-field col s8">
+            <div class="input-field col m8 s12">
                 <input type="text" placeholder="Título ou Referência do produto" [(ngModel)]="filter" name="filter" (keyup)="search()">
                 <label for="filter">Título ou Referência do produto</label>
             </div>
@@ -33,7 +33,7 @@
     [page]="productsInfos?.current_page"
 ></app-pagination>
 
-<table>
+<table class="responsive-table striped">
     <thead>
         <tr>
             <th>Ref.</th>
@@ -100,10 +100,10 @@
     </div>
     <div class="modal-footer">
         <div class="row">
-            <div class="col s3 push-s3">
+            <div class="col s6 m3 push-sm">
                 <button class="modal-close btn grey lighten-2 black-text">Fechar</button>
             </div>
-            <div class="col s3 push-s3">
+            <div class="col s6 m3 push-m6">
                 <button class="waves-effect waves-orange btn orange darken-1" (click)="sell()">Registrar</button>
             </div>
         </div>

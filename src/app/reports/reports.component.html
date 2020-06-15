@@ -7,10 +7,10 @@
         </ul>
         <div id="obsolete-products" style="height: 40em;">
             <div class="row">
-                <form class="col s3" [formGroup]='reportObsoleteForm'>
+                <form class="col s12 m3" [formGroup]='reportObsoleteForm'>
                     <div class="row">
-                        <div class="col s12 center-align">
-                            <h5>Relatório de produtos obsoletos</h5>
+                        <div style="margin: 20px 0 20px 0;" class="col s12 center-align">
+                            <b>Relatório de produtos obsoletos</b>
                         </div>
                         <div class="input-field col s12">
                             <input type="date" placeholder="Desde" formControlName="since" name="since"/>
@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col s9">
+                        <div class="col s12 m9">
                             <button
                                 class="btn orange darken-1"
                                 (click)="onSubmit()"
@@ -36,9 +36,9 @@
                             </div>
                     </div>
                 </form>
-                <div class="col s8 list">
+                <div class="col s12 m8 list">
 
-                    <table>
+                    <table class="striped responsive-table">
                         <thead>
                             <tr>
                                 <th>Nome</th>
@@ -69,11 +69,10 @@
             </div>
             <div class="row">
                 <div class="col s12 list">
-                    <table>
+                    <table class="striped">
                         <thead>
                             <tr>
-                                <th>Nome</th>
-                                <th>Aplicação</th>
+                                <th>Produto</th>
                                 <th>Quantidade mínima</th>
                                 <th>Quantidade Total</th>
                             </tr>
@@ -81,8 +80,7 @@
                     
                         <tbody>
                             <tr *ngFor="let product of reportInventoryDown">
-                                <td>{{ product?.title }}</td>
-                                <td>{{ product?.application }}</td>
+                                <td>{{ product?.title }} <br> {{ product?.ref}}</td>
                                 <td>{{ product?.limit_amount }}</td>
                                 <td>{{ product?.amount }}</td>
                             </tr>

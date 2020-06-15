@@ -12,7 +12,7 @@
 
   <div class="row">  
 
-    <div class="input-field col s4">
+    <div class="input-field col m4 s6">
       <input 
         type="text" 
         placeholder="Nome" 
@@ -21,17 +21,7 @@
       <label for="name">Nome</label>
     </div>
 
-    <div class="input-field col s4">
-      <input
-        type="text"
-        placeholder="Usuário para login"
-        formControlName="user"
-        name="user"
-      />
-      <label for="user">Usuário</label>
-    </div>
-
-    <div class="input-field col s4">
+    <div class="input-field col m4 s6">
       <input 
         type="text"
         placeholder="CPF"
@@ -41,11 +31,22 @@
         />
       <label for="cpf">CPF</label>
     </div>
+
+    <div class="input-field col m4 s12">
+      <input
+        type="text"
+        placeholder="Usuário para login"
+        formControlName="user"
+        name="user"
+      />
+      <label for="user">Usuário</label>
+    </div>
+
   </div>
 
   <div class="row">  
 
-    <div class="input-field col s4">
+    <div class="input-field col m4 s6">
       <input 
         type="email" 
         placeholder="Email" 
@@ -54,7 +55,7 @@
       <label for="email">Email</label>
     </div>
 
-    <div class="input-field col s4">
+    <div class="input-field col m4 s6">
       <input
         type="password"
         placeholder="Senha"
@@ -64,23 +65,24 @@
       <label for="password">Password</label>
     </div>
 
-    <div class="input-field col s4">
+    <div class="input-field col m4 s12">
       <ng-select
         [items]="roles?.data"
         bindLabel="name"
         bindValue="id"
         formControlName="role_id"
         placeholder="Cargos"
+        class="custom"
       ></ng-select>
     </div>
   </div>
   <div class="row">
-    <div class="col s3 push-s3">
+    <div class="col m3 s6 push-m3">
       <button class="btn red" (click)="clean()" *ngIf="!userForm?.value?.id">
         Limpar
       </button>
     </div>
-    <div class="col s3 push-s3">
+    <div class="col m3 s6 push-m3">
       <button
         class="btn blue darken-1"
         (click)="onSubmit()"

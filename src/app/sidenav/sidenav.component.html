@@ -35,15 +35,24 @@
     </ul>
   </li>
 
-  <li><a routerLink="/reports"><i class="material-icons">bar_chart</i><span>Gerar Relatórios</span></a></li>
+  <li class="no-padding">
+    <ul class="collapsible collapsible-accordion" data-collapsible="expandable" materialize="collapsible">
+      <li>
+        <a class="collapsible-header"><span class="material-icons icon">arrow_drop_down</span><span>Estoque</span></a>
+        <div class="collapsible-body">
+          <ul>
+            <li><a routerLink="/inventory-list"><i class="material-icons">list</i><span>Consultar</span></a></li>
+            <li><a routerLink="/inventory-edit"><i class="material-icons">edit</i><span>Editar</span></a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </li>
 
-  <li><a routerLink="/inventory-list"><i class="material-icons">list</i><span>Consultar Estoque</span></a></li>
-
-  <li><a routerLink="/inventory-edit"><i class="material-icons">edit</i><span>Editar Estoque</span></a></li>
   <li><a routerLink="/inventory-sell"><i class="material-icons">shopping_cart</i><span>Dar Baixa</span></a></li>
   <li><a routerLink="/sales"><i class="material-icons">assessment</i><span>Listar Baixas</span></a></li>
-
-  <li><a routerLink="/categories"><i class="material-icons">bookmarks</i><span>Cadastrar Categorias</span></a></li>
+  <li><a routerLink="/categories"><i class="material-icons">bookmarks</i><span>Categorias</span></a></li>
+  <li><a routerLink="/reports"><i class="material-icons">bar_chart</i><span>Gerar Relatórios</span></a></li>
   <li><a *ngIf="user" [routerLink]="['users', user?.id]" ><i class="material-icons">account_box</i><span>Editar Perfil</span></a></li>
   <li (click)="logout()"><a class="clickable"><i class="material-icons">cancel_presentation</i><span>Sair</span></a></li>
   

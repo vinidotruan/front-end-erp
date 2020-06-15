@@ -7,15 +7,29 @@
     }
 }
 
+@media only screen and (min-width: 1024px){
+    .loginBg{
+        margin-left:-300px !important;
+    }    
+}
+
+.logo{
+    color: #444;
+    font-size: 36px;
+    text-transform: uppercase;
+    text-align: center;
+    padding-bottom: 1em;
+}
+
 .login {    
     background: $orange-100;
     background-image: linear-gradient(90deg, $orange-100,$orange-200);
     border-radius: 3em;
-    padding: 5em;
+    padding: 2% 5% 5% 5%;
     box-shadow: 0px 0px 10px 0 black;
-    margin-top: 12em;
+    margin-top: 1em;
     
-    .s8 {
+    .black-background {
         background: $black-600;
         border-radius: 3em;
         padding: 5em;
