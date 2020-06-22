@@ -27,7 +27,7 @@
         <a class="collapsible-header"><span class="material-icons icon">arrow_drop_down</span><span>Usuários</span></a>
         <div class="collapsible-body">
           <ul>
-            <li><a routerLink="/users-form"><i class="material-icons">add</i><span>Cadastrar Usuários</span></a></li>
+            <li *ngIf="user?.role_id == 1"><a routerLink="/users-form"><i class="material-icons">add</i><span>Cadastrar Usuários</span></a></li>
             <li><a routerLink="/users"><i class="material-icons">people</i><span>Listas Usuários</span></a></li>
           </ul>
         </div>

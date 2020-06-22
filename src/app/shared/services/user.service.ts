@@ -8,28 +8,22 @@ import { User } from '@shared/models/user';
 export class UserService {
     constructor(private http: HttpClient) { }
 
-    getAll() {
-        return this.http.get<User[]>(`${environment.apiUrl}/users`);
-    }
+    getAll = () => this.http.get<User[]>(`${environment.apiUrl}/users`);
 
     /**
      * Store an user
      */
-    store = (user: User) => {
-        return this.http.post(`${environment.apiUrl}/users`, user);
-    }
+    store = (user: User) => this.http.post(`${environment.apiUrl}/users`, user);
 
     /**
      * Update an user
      */
-    update = (user: User) => {
-        return this.http.put(`${environment.apiUrl}/users/${user?.id}`, user);
-    }
+    update = (user: User) => this.http.put(`${environment.apiUrl}/users/${user?.id}`, user);
 
     /**
      * Find an user
      */
-    find = (user) => {
-        return this.http.get<User>(`${environment.apiUrl}/users/${user}`);
-    }
+    find = (user) =>  this.http.get<User>(`${environment.apiUrl}/users/${user}`);
+
+    delete = (user) => this.http.delete(`${environment.apiUrl}/users/${user}`)
 }

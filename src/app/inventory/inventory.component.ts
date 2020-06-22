@@ -135,4 +135,10 @@ export class InventoryComponent implements OnInit {
     });
   }
 
+  delete = (product) => this.service.delete(product?.id)
+    .subscribe(
+      () => this.getProducts(),
+      error => M.toast({ html:error, classes:'fail' })
+    )
+
 }

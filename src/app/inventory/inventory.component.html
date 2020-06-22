@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col s12 center">
-        <h3>{{this.router.url == "/inventory-sell" ? "Dar baixa em produtos" : this.router.url == "/inventory-edit" ? "Editar estoque" : "Consultar estoque"}}</h3>
+        <h3>{{ screenType === 'sell' ? "Dar baixa em produtos" : screenType === 'edit'  ? "Editar estoque" : "Consultar estoque"}}</h3>
     </div>
 </div>
 
@@ -45,6 +45,7 @@
             <th *ngIf="screenType === 'sell'">Baixa</th>
             <th *ngIf="screenType === 'edit'">Editar</th>
             <th *ngIf="screenType === 'add'">Adicionar</th>
+            <th *ngIf="loggedUser?.role_id == 1">Excluir</th>
         </tr>
     </thead>
 
@@ -56,6 +57,13 @@
             <td>{{ product.value_sell }}</td>
             <td id="application">{{ product.application }}</td>
             <td>{{ product.amount }}</td>
+            <td *ngIf="loggedUser?.role_id == 1">
+                <a class="red-text clickable" (click)="delete(product)">
+                    <i class="material-icons">
+                        delete
+                    </i>
+                </a>
+            </td>
             <td *ngIf="screenType === 'sell'">
                 <a class="green-text modal-trigger clickable" data-target="sells" (click)="selectProduct(product)">
                     <i class="material-icons">

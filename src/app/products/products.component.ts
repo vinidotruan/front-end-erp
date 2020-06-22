@@ -63,7 +63,10 @@ export class ProductsComponent implements OnInit {
     } else {
     this.service.store(this.productForm.value)
       .subscribe(
-        () => M.toast({html: "Cadastrado com sucesso", classes:'succes'}),
+        () => {
+          M.toast({html: "Cadastrado com sucesso", classes:'succes'});
+          this.productForm.reset();
+        },
         error => {
           this.handleError(error);
           this.loading = false;

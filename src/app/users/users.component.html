@@ -12,6 +12,7 @@
             <th>CPF</th>
             <th>Tipo</th>
             <th *ngIf="authUser.role_id === 1">Editar</th>
+            <th *ngIf="authUser.role_id === 1">Excluir</th>
         </tr>
     </thead>
 
@@ -25,6 +26,13 @@
                 <a class="orange-text" routerLink="//users/{{user.id}}">
                     <i class="material-icons">
                         create
+                    </i>
+                </a>
+            </td>
+            <td *ngIf="authUser.role_id === 1">
+                <a class="red-text clickable" (click)="delete(user)">
+                    <i class="material-icons">
+                        delete
                     </i>
                 </a>
             </td>

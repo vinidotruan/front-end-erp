@@ -36,6 +36,8 @@ export class ProductsService {
    */
   update = (product) => this.http.put(`${environment.apiUrl}/products/${product.id}`, product);
 
+  delete = (product) => this.http.delete(`${environment.apiUrl}/products/${product}`);
+
   /**
    * Search products
    */
