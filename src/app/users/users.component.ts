@@ -27,7 +27,15 @@ export class UsersComponent implements OnInit {
   getUsers = () => this.service.getAll()
     .subscribe(
       data => this.usersInfos = data,
-      error => M.toast({ html:error, classes:'fail'})
+      error => M.toast({ html:error, classes:'fail' })
     )
+
+  delete = (user) => {
+    this.service.delete(user?.id)
+      .subscribe(
+        data => this.getUsers(),
+        error => M.toast({ html:error, classes:'fail' })
+      )
+  }
 
 }
