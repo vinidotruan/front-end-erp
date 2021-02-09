@@ -45,7 +45,7 @@
             <th *ngIf="screenType === 'sell'">Baixa</th>
             <th *ngIf="screenType === 'edit'">Editar</th>
             <th *ngIf="screenType === 'add'">Adicionar</th>
-            <th *ngIf="loggedUser?.role_id == 1">Excluir</th>
+            <th *ngIf="loggedUser?.role_id == 1 && screenType === 'edit'">Excluir</th>
         </tr>
     </thead>
 
@@ -57,17 +57,17 @@
             <td>{{ product.value_sell }}</td>
             <td id="application">{{ product.application }}</td>
             <td>{{ product.amount }}</td>
-            <td *ngIf="loggedUser?.role_id == 1">
-                <a class="red-text clickable" (click)="delete(product)">
-                    <i class="material-icons">
-                        delete
-                    </i>
-                </a>
-            </td>
             <td *ngIf="screenType === 'sell'">
                 <a class="green-text modal-trigger clickable" data-target="sells" (click)="selectProduct(product)">
                     <i class="material-icons">
                         shopping_cart
+                    </i>
+                </a>
+            </td>
+            <td *ngIf="screenType === 'edit'">
+                <a class="orange-text" routerLink="//products/{{product.id}}">
+                    <i class="material-icons">
+                        create
                     </i>
                 </a>
             </td>
@@ -78,10 +78,10 @@
                     </i>
                 </a>
             </td>
-            <td *ngIf="screenType === 'edit'">
-                <a class="orange-text" routerLink="//products/{{product.id}}">
+            <td *ngIf="loggedUser?.role_id == 1 && screenType === 'edit'">
+                <a class="red-text clickable" (click)="delete(product)">
                     <i class="material-icons">
-                        create
+                        delete
                     </i>
                 </a>
             </td>
